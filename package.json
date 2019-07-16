@@ -2,7 +2,7 @@
   "name": "GDL003-social-network",
   "version": "1.0.0",
   "description": "Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes\r sociales han invadido nuestras vidas. Las amamos y/u odiamos, y muchos no podemos vivir sin ellas.",
-  "main": "index.js",
+  "main": "src/index.html",
   "scripts": {
     "htmlhint": "htmlhint src/*.html test/*.html",
     "eslint": "eslint --ext .js src/ test/",
