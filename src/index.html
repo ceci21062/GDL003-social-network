@@ -6,15 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Find Your Pet</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
     <h1 id="bigOne"></h1>
+<header id="headerLogo">
+  <img src="FindYourPet.jpg" alt="Logo Find Your Pet"/>
+</header>
+<main>
+ <section id="dataLogin">
+   <form>
+     <input type="text" id="email" placeholder="Email" required/>
+     <input type="password" id="password" placeholder="Password" required/>
+   </form>
+   <button id="login" class="login">Entrar</button>
+   <button id="register" class="login">Registrate</button>
+ </section>
+ <section id="newUser">
+   <form>
+      <input type="text" id="name" placeholder="Nombre" required/>
+      <input type="text" id="user" placeholder="Usuario" required/>
+      <input type="text" id="newEmail" placeholder="Email" required/>
+      <input type="text" id="newPassword" placeholder="Contraseña" required/>
+      <input type="text" id="confirmPassword" placeholder="Confirmar contraseña" required/>
+   </form>
+   <button id="loginGoogle">Registro con Google</button>
+   <button id="createUser">Crear usuario</button>
+ </section>
+ <section id"home">
+<!--elementos del home-->
+  <article id="aboutUs">
+    <h1>Acerca de nosotros</h1>
+    <p>bla,bla,bla, selecciona una de las categorías que estan abajo</p>
+  </article>
+  <button id="find">Encuentra</button>
+  <button id="adopt">Adopta</button>
+ </section>
+ <section id="findPage">
+
+ </section>
+ <section id="adoptPage">
+
+ </section>
+</main>
+<footer>
+<ul>
+  <li><button id="goUser"></button></li>
+  <li><button id="goHome"></button></li>
+  <li><button id="search"></button></li>
+</ul>
+</footer>
     <!-- Loads the entire Firebase JavaScript SDK -->
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
-
-
     <script src="firebase.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
