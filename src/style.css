@@ -37,6 +37,8 @@ input{
   margin-top: 4%;
   height: 10%;
   width: 50%;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 110%
 }
 
 .login{
@@ -44,11 +46,15 @@ input{
   margin-bottom: 5%;
   width: 60%;
   height: 10%;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 150%;
+  font-weight: bold;
 }
 
 #dataLogin{
 top: 50%;
 }
+
 #register{
   background-color: #50b6bb;
   border-color: white;
