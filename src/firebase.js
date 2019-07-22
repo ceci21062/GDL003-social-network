@@ -15,3 +15,20 @@
         let bigOne = document.getElementById('bigOne');
         let dbRef = firebase.database().ref().child('text');
         dbRef.on('value', snap => bigOne.innerText = snap.val());
+
+        let contactosred =firebase.database().ref("contactosWeb");
+
+const guardarFormulario = (e) =>{
+    e.preventDefault();
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+   
+    let nuevoComentarioRef =contactosred.push();
+        nuevoComentarioRef.set({
+            email: email,
+            password: password,
+        
+        });
+}
+
+document.getElementById("login").addEventListener("click",guardarFormulario);
