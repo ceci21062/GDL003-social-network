@@ -31,4 +31,15 @@ const guardarFormulario = (e) =>{
         });
 }
 
-document.getElementById("login").addEventListener("click",guardarFormulario);
+document.getElementById("loginGoogle").addEventListener("click",()=>{
+    let provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(user){
+        alert("Google signIn");
+        console.log(user);
+    }).catch(function(error){
+        alert("Error");
+        console.log(error);
+    })
+});
+
+document.getElementById("login").addEventListener("click", guardarFormulario);
