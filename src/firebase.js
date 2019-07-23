@@ -21,11 +21,11 @@
           let email = document.getElementById('email').value;
           let password = document.getElementById('password').value;
           if (email.length < 4) {
-            alert('Please enter an email address.');
+            alert('Por favor ingresa un correo electronico.');
             return;
           }
           if (password.length < 4) {
-            alert('Please enter a password.');
+            alert('Por favor ingresa una contraseña.');
             return;
           }
           // Sign in with email and pass.
@@ -36,7 +36,7 @@
             var errorMessage = error.message;
             // [START_EXCLUDE]
             if (errorCode == 'auth/weak-password') {
-              alert('The password is too weak.');
+              alert('La contraseña es muy debil.');
             } else {
               alert(errorMessage);
             }
@@ -65,7 +65,9 @@
               let providerData = user.providerData;
               // [START_EXCLUDE]
              
-              document.getElementById('loginGoogle').textContent = 'Sign out';
+
+              document.getElementById('loginGoogle').textContent = 'Ingresa con Google';
+
               
 // [END_EXCLUDE]
             } 
@@ -101,4 +103,7 @@ document.getElementById("loginGoogle").addEventListener("click",guardarFormulari
 window.onload = function() {
     initApp();
 
+
+
   };
+
