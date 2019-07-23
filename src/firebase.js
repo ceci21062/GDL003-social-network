@@ -17,34 +17,9 @@
         dbRef.on('value', snap => bigOne.innerText = snap.val());
 
        
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-        function handleSignUp() {
-          var email = document.getElementById('email').value;
-          var password = document.getElementById('password').value;
+     const handleSignUp =() => {
+          let email = document.getElementById('email').value;
+          let password = document.getElementById('password').value;
           if (email.length < 4) {
             alert('Por favor ingresa un correo electronico.');
             return;
@@ -70,7 +45,9 @@
           });
           // [END createwithemail]
         }
-        function initApp() {
+
+        
+        const initApp= ()=> {
           // Listening for auth state changes.
           // [START authstatelistener]
           firebase.auth().onAuthStateChanged(function(user) {
@@ -79,52 +56,36 @@
             // [END_EXCLUDE]
             if (user) {
               // User is signed in.
-              var displayName = user.displayName;
-              var email = user.email;
-              var emailVerified = user.emailVerified;
-              var photoURL = user.photoURL;
-              var isAnonymous = user.isAnonymous;
-              var uid = user.uid;
-              var providerData = user.providerData;
+              let displayName = user.displayName;
+              let email = user.email;
+              let emailVerified = user.emailVerified;
+              let photoURL = user.photoURL;
+              let isAnonymous = user.isAnonymous;
+              let uid = user.uid;
+              let providerData = user.providerData;
               // [START_EXCLUDE]
              
+
               document.getElementById('loginGoogle').textContent = 'Ingresa con Google';
+
               
-              // [END_EXCLUDE]
+// [END_EXCLUDE]
             } 
-            // [START_EXCLUDE silent]
+ // [START_EXCLUDE silent]
            
-            // [END_EXCLUDE]
+// [END_EXCLUDE]
           });
-          // [END authstatelistener]
+ // [END authstatelistener]
           
           document.getElementById('loginGoogle').addEventListener('click', handleSignUp, false);
          
         }
-        window.onload = function() {
-          initApp();
-        };
        
-    
-/*const data = firebase.database();
-let data = {
-    "Moscow": {
-      country: "Russia"
-    },
-    "Berlin": {
-      name: "Germany"
-    }
-  }
-//Obtener una referencia a la raíz de la base de datos
-let refToData = data.ref('cities'); 
-//Obtener una console.log de todos los datos 
-dataRef.once('value', snapshot => {
-  console.log(snapshot.val());
-});
-let dataPush = dataRef.push(data);*/
+       
 
-        
-        let contactosred =firebase.database().ref("contactosWeb");
+
+// acceder a database        
+/*let contactosred =firebase.database().ref("contactosWeb");
 
 const guardarFormulario = (e) =>{
     e.preventDefault();
@@ -132,11 +93,17 @@ const guardarFormulario = (e) =>{
     let password = document.getElementById("password").value;
    
     let nuevoComentarioRef =contactosred.push();
-        nuevoComentarioRef.set({
-            email: email,
-            password: password,
-        
-        });
-}
+            nuevoComentarioRef.set({
+                email: email,
+                password: password,
+            });
+    }
+document.getElementById("loginGoogle").addEventListener("click",guardarFormulario);*/
 
-document.getElementById("loginGoogle").addEventListener("click",guardarFormulario);
+window.onload = function() {
+    initApp();
+
+
+
+  };
+
