@@ -46,11 +46,11 @@
           var email = document.getElementById('email').value;
           var password = document.getElementById('password').value;
           if (email.length < 4) {
-            alert('Please enter an email address.');
+            alert('Por favor ingresa un correo electronico.');
             return;
           }
           if (password.length < 4) {
-            alert('Please enter a password.');
+            alert('Por favor ingresa una contraseña.');
             return;
           }
           // Sign in with email and pass.
@@ -61,7 +61,7 @@
             var errorMessage = error.message;
             // [START_EXCLUDE]
             if (errorCode == 'auth/weak-password') {
-              alert('The password is too weak.');
+              alert('La contraseña es muy debil.');
             } else {
               alert(errorMessage);
             }
@@ -88,7 +88,7 @@
               var providerData = user.providerData;
               // [START_EXCLUDE]
              
-              document.getElementById('enterWithGoogle').textContent = 'Sign out';
+              document.getElementById('loginGoogle').textContent = 'Ingresa con Google';
               
               // [END_EXCLUDE]
             } 
@@ -98,7 +98,7 @@
           });
           // [END authstatelistener]
           
-          document.getElementById('enterWithGoogle').addEventListener('click', handleSignUp, false);
+          document.getElementById('loginGoogle').addEventListener('click', handleSignUp, false);
          
         }
         window.onload = function() {
@@ -139,4 +139,4 @@ const guardarFormulario = (e) =>{
         });
 }
 
-document.getElementById("login").addEventListener("click",guardarFormulario);
+document.getElementById("loginGoogle").addEventListener("click",guardarFormulario);
