@@ -1,4 +1,6 @@
 document.getElementById("dataLogin").style.display="block";
+//document.getElementById("email").value="";
+//document.getElementById("password").value="";
 document.getElementById("email").value="";
 document.getElementById("password").value="";
 
@@ -8,16 +10,22 @@ const enterLogin =()=>{
 }
 document.getElementById("register").addEventListener("click", enterLogin);
 
-/*const enterGoogle=()=>{
+const enterGoogle=()=>{
 
-  firebase.auth().signInWithEmailAndPassword(email, password).catch(error => {
-  // Handle Errors here.
-  let errorCode = error.code;
-  let errorMessage = error.message;
-  console.log(errorCode);
-  console.log(errorMessage);
-      }); 
-    };
-    
-  document.getElementById("loginGoogle").addEventListener("click", enterGoogle);
-*/
+firebase.auth().signInWithEmailAndPassword(email, password).catch(error => {
+// Handle Errors here.
+let errorCode = error.code;
+let errorMessage = error.message;
+console.log(errorCode);
+console.log(errorMessage);
+    }); 
+  };
+document.getElementById("loginGoogle").addEventListener("click", enterGoogle);
+ 
+const sendHome=()=>{
+  document.getElementById("googleUser").style.display = "none";
+  document.getElementById("dataLogin").style.display = "none";
+  document.getElementById("home").style.display = "block";
+  };
+document.getElementById("enterWithGoogle").addEventListener("click", sendHome);
+
