@@ -18,8 +18,11 @@
 
 
      const handleSignUp =() => {
+          let nameUser = document.getElementById('name').value;
           let email = document.getElementById('email').value;
           let password = document.getElementById('password').value;
+          let confirmPassword = document.getElementById('confirmPassword').value;
+          
           if (email.length < 4) {
             alert('Por favor ingresa un correo electronico.');
             return;
@@ -27,6 +30,9 @@
           if (password.length < 4) {
             alert('Por favor ingresa una contraseña.');
             return;
+          }
+          if (password !== confirmPassword){
+            alert('Por favor verifica tu contraseña este correcta')
           }
           // Sign in with email and pass.
           // [START createwithemail]
@@ -66,7 +72,7 @@
             // [START_EXCLUDE]             
 
             
-              document.getElementById('loginGoogle').textContent = 'Ingresa con Google';
+              //document.getElementById('createUser').textContent = 'Ingresa con Google';
       
             
 // [END_EXCLUDE]
@@ -77,7 +83,8 @@
         });
 // [END authstatelistener]
         
-        document.getElementById('loginGoogle').addEventListener('click', handleSignUp, false);
+        document.getElementById('createUser').addEventListener('click', handleSignUp, false )
+        
       };
       
 // acceder a database        
