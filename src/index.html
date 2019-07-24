@@ -19,36 +19,21 @@
   <main>
     <section id="dataLogin">
       <form>
+        <h1 id="nameText">Ingresa tu nombre de usuario</h1>
+        <input type="text" id="name" placeholder="Nombre de usuario" required />
         <h1>Ingresa tu correo electronico</h1>
         <input type="text" id="email" placeholder="Email" required />
         <h1>Ingresa tu contraseña</h1>
         <input type="password" id="password" placeholder="Password" required />
+        <h1 id="confirmText">Confirma tu contraseña</h1>
+        <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required />
       </form>
       <button id="login" class="login">Entrar</button>
       <button id="loginGoogle" class="login">Registro con Google</button>
       <button id="register" class="login">Registrate</button>
+      <button id="createUser" class="login">Crear usuario</button>
     </section>
-    <section id="googleUser">
-      <form>
-        <h1>Ingresa tu correo electronico</h1>
-        <input type="text" id="emailGoogle" placeholder="Email" required />
-        <h1>Ingresa tu contraseña</h1>
-        <input type="password" id="passwordGoogle" placeholder="Password" required />
-      </form>
-      <button id="enterWithGoogle" class="login">Entrar</button>
-    </section>
-    <section id="newUser">
-      <form>
-        <h1>Ingresa tu nombre de usuario</h1>
-        <input type="text" id="name" placeholder="Nombre de usuario" required />
-        <h1>Ingresa tu correo electronico</h1>
-        <input type="text" id="newEmail" placeholder="Email" required />
-        <h1>Ingresa una contraseña</h1>
-        <input type="password" id="newPassword" placeholder="Contraseña" required />
-        <h1>Confirma tu contraseña</h1>
-        <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required />
-      </form>
-      <button id="createUser">Crear usuario</button>
+      <button id="enterWithGoogle" class="login">Entrar con Google</button>
     </section>
     <section id="home">
       <!--elementos del home-->
