@@ -91,16 +91,15 @@
           alert("Tu cuenta ha sido loggueada");
         }, function(error) {
           if(error.code === "auth/wrong-password"){
-          document.getElementById("wrongPassword").innerHTML = "Tu contraseña es incorrecta. Verifica que sea correcta";   
+          document.getElementById("wrong").innerHTML = "Tu contraseña es incorrecta. Verifica que sea correcta";   
           console.log("hasta el error de la contraseña");
          } else if (error.code === "auth/invalid-email") {
-          document.getElementById("wrongEmail").innerHTML = "Tu email es incorrecto. Verifica que sea correcto";
+          document.getElementById("wrong").innerHTML = "Tu email es incorrecto. Verifica que sea correcto";
           console.log("hasta el error del email mal escrito");
         } else if(error.code === "auth/user-not-found"){
-          document.getElementById("wrongEmail").innerHTML = "Usuario no registrado";
+          document.getElementById("wrong").innerHTML = "Usuario no registrado";
         console.log("hasta el error del usuario no registrado");  
-        } 
-          else {
+        }  else {
             console.log(error);
           }
           });
