@@ -84,19 +84,14 @@
 
       const signIn = () =>{
         let email = document.getElementById('email').value;
-          let password = document.getElementById('password').value;
+        let password = document.getElementById('password').value;
+
         let promise = firebase.auth().signInWithEmailAndPassword(email, password);
         promise.then(function(currentUser) {
           alert("Tu cuenta ha sido loggueada");
         }, function(error) {
           console.log(error);
         });
-       /* .catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // ...
-        }); */
       };
 
       document.getElementById("login").addEventListener("click", signIn);
