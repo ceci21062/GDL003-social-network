@@ -45,3 +45,15 @@ document.getElementById("login").addEventListener("click", sendHome);*/
   location.reload();
 };
 document.getElementById("logOut").addEventListener("click", sendStart);
+
+const sendFind = () => {
+  document.getElementById("findPage").style.display = "block";
+  document.getElementById("home").style.display = "none";
+}
+document.getElementById("find").addEventListener("click", sendFind);
+
+const sendAdopt = () => {
+  document.getElementById("adoptPage").style.display = "block";
+  document.getElementById("home").style.display = "none";
+}
+document.getElementById("adopt").addEventListener("click", sendAdopt);
