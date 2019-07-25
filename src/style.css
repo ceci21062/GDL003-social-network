@@ -1,11 +1,12 @@
 *{
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body{
   background-color: #d0ecf2;
-text-align: center;
+  text-align: center;
 }
 
  header{
@@ -18,27 +19,25 @@ main{
   height: 100%;
   text-align: center;
   justify-content: center;
-   align-items: center;
+  align-items: center;
 }
-
 section{
-display: none;
-
+  visibility: none;
 }
 
 footer{
-display: none;
+  visibility: none;
 }
-
 input{
   border-color: #f96d15;
   padding: 5% 10%;
   margin-bottom: 4%;
   margin-top: 4%;
   height: 10%;
-  width: 50%;
+  width: 70%;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 110%
+  font-size: 100%;
+  align-items: center;
 }
 
 .login{
@@ -51,10 +50,16 @@ input{
   font-weight: bold;
 }
 
-#dataLogin{
-top: 50%;
+#formLogin{
+  align-items: center;
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-weight: bold;
+  width: 100%;
+  height: 10%;
+  font-size: 100%;
 }
-
 #register{
   background-color: #50b6bb;
   border-color: white;
@@ -64,7 +69,44 @@ top: 50%;
   background-color: #f96d15;
   border-color: white;
 }
-#loginGoogle{
+#imageHome{
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 90%;
+  height: 60%;
+}
+#select{
+  font-family: 'Ubuntu', sans-serif;
+  color: #307e7e;
+  font-weight: bold;
+  text-align: justify;
+}
+#home>article>h1{
+  text-align: center;
+}
+#find{
+  margin-top: 5%;
+  border-radius: 45%;
+  margin-right: 5%;
+  height: 20%;
+  width: 20%;
+}
+#adopt{
+  margin-top: 5%;
+  border-radius: 45%;
+  height: 20%;
+  width: 20%;
+}
+/*#search{
+  background-image: url("https://i.ibb.co/yqFLM7Q/Whats-App-Image-2019-07-25-at-12-04-45-AM.jpg");
+}
+#home{
+  background-image: url("https://i.ibb.co/6NyPWf7/Whats-App-Image-2019-07-25-at-12-15-51-AM.jpg");
+}
+#user{
+  background-image: url("https://i.ibb.co/sJtDjWM/Whats-App-Image-2019-07-25-at-12-10-07-AM.jpg");
+}*/
+/*#loginGoogle{
   background-color: #50b6bb;
   border-color: white;
-}
+}*/
