@@ -27,6 +27,9 @@ body{
   width: 100%;
   align-items: center;
  }
+ #logoPageInit{
+   margin-top: 10%;
+ }
 #logOut{
  display: none;
   float: right;
@@ -40,7 +43,7 @@ body{
   width: 100%;
  }
 #introductionFormat{
-  
+  margin-top: 5%;
   margin-bottom: 10%;
   align-content: center;
   margin-left: 10%;
