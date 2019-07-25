@@ -1,4 +1,6 @@
-document.getElementById("dataLogin").style.display = "block";
+
+document.getElementById("pageinit").style.display="block"
+document.getElementById("dataLogin").style.display = "none";
 document.getElementById("nameText").style.display = "none";
 document.getElementById("name").style.display = "none";
 document.getElementById("confirmText").style.display = "none";
@@ -7,6 +9,13 @@ document.getElementById("createUser").style.display = "none";
 document.getElementById("enterWithGoogle").style.display = "none";
 
 
+
+const startapp = ()=>{
+  document.getElementById("pageinit").style.display="none";
+  document.getElementById("dataLogin").style.display = "block"
+}
+
+document.getElementById("start").addEventListener("click", startapp);
 
 const enterRegister = () => {
   document.getElementById("nameText").style.display = "block";
