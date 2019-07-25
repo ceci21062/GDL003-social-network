@@ -5,18 +5,62 @@
 }
 
 body{
+
   background-color: #d0ecf2;
   text-align: center;
 }
+
 
  header{
    background-color: white;
    position: relative;
  }
+ h3 {
+  
+  font-size: 1.17em;
+  font-weight: bold;
+  padding-top: 3rem;
+}
+
+ article{
+  background-color: white;
+
+ }
+
+#botonstart{
+  background-repeat: no-repeat;
+  background-image: url("https://media.giphy.com/media/3ohzdWVBzNoIazr2so/giphy.gif");
+  background-size: 23rem; 
+  padding-top: 17.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  height: 100%
+  
+  ;
+
+
+}
+
+ #start{
+  color:  #45969b; 
+  font-size: 1rem; 
+  line-height: 2rem; 
+  padding: 2rem; 
+  border-radius: 50px; 
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold; 
+  text-transform: none;
+  background-color:transparent;
+  margin-bottom: 0%;
+  border: 3px solid #f96d15;
+  display: inline-block;
+  box-shadow: 2px 2px 7px 1px #f96d15;
+}
 
 main{
   width: 100%;
   height: 100%;
+  background-color: #45969b;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -110,3 +154,4 @@ input{
   background-color: #50b6bb;
   border-color: white;
 }*/
+
