@@ -1,5 +1,6 @@
 
 document.getElementById("pageInit").style.display="block"
+document.getElementById("headerLogo").style.display = "none";
 document.getElementById("dataLogin").style.display = "none";
 document.getElementById("nameText").style.display = "none";
 document.getElementById("name").style.display = "none";
@@ -13,7 +14,8 @@ document.getElementById("footerMenu").style.display = "none";
 const startapp = ()=>{
   document.getElementById("pageInit").style.display="none";
   document.getElementById("home").style.display="none";
-  document.getElementById("dataLogin").style.display = "block"
+  document.getElementById("dataLogin").style.display = "block";
+  document.getElementById("headerLogo").style.display = "block";
 }
 
 document.getElementById("start").addEventListener("click", startapp);
@@ -44,8 +46,14 @@ document.getElementById("login").addEventListener("click", sendHome);*/
 };
 document.getElementById("logOut").addEventListener("click", sendStart);
 
-
-const adoptbutton =()=>{
-  
-
+const sendFind = () => {
+  document.getElementById("findPage").style.display = "block";
+  document.getElementById("home").style.display = "none";
 }
+document.getElementById("find").addEventListener("click", sendFind);
+
+const sendAdopt = () => {
+  document.getElementById("adoptPage").style.display = "block";
+  document.getElementById("home").style.display = "none";
+}
+document.getElementById("adopt").addEventListener("click", sendAdopt);

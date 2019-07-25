@@ -16,17 +16,19 @@
   <header id="headerLogo">
     <img src="FindYourPet.png" alt="Logo Find Your Pet" />
   </header>
-<article id="pageinit">
-  <div id="introductionformat">
-    <h3>Estas en buenas manos estas en Find Your Pets 
+  <main>
+<section id="pageInit">
+  <img id="logoPageInit" src="FindYourPet.png" alt="Logo Find Your Pet" />
+  <article id="introductionFormat">
+    <h3>Bienvenido estas en buenas manos.
+      Estas en Find Your Pets, 
       somos una comunidad enfocada en la adopcion 
       y busqueda de tus mascotas      
    </h3>
-  <img src="https://data.whicdn.com/images/44687352/original.gif" alt="">
-</div>
-<div id="botonstart">
-  <button id="start">INICIO</button>
-</div>
+  </article>
+   <article id="imageStart">
+  <img id="imageWelcome" src="https://data.whicdn.com/images/44687352/original.gif" alt="">
+  <img id="start" src="https://i.ibb.co/yXcdybT/Whats-App-Image-2019-07-25-at-6-27-47-PM.jpg" alt="Inicio">
 </article>
   <main>
     <section id="dataLogin">
@@ -37,6 +39,7 @@
         <input type="text" id="email" placeholder="Correo electronico" required />
         <h1>Ingresa tu contraseña</h1>
         <input type="password" id="password" placeholder="contraseña" required />
+        <p id="wrong" class="alerts"></p>
         <h1 id="confirmText">Confirma tu contraseña</h1>
         <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required />
       </form>
