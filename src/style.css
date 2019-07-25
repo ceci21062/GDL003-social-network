@@ -5,7 +5,7 @@
 }
 
 body{
-
+  background-color: white;
   text-align: center;
 }
 
@@ -20,42 +20,55 @@ body{
   font-weight: bold;
   padding-top: 3rem;
   text-align: justify;
-  align-content: center;
-  width: 100%;
 }
-
  article{
   background-color: white;
-
+  height: 100%;
+  width: 100%;
+  align-items: center;
  }
-
-
-#introductionformat{
-  margin-top: 1rem;
+ #pageInit{
+  background-color: white;
+  height: 100%;
+  width: 100%;
+ }
+#introductionFormat{
+  margin-top: 10%;
+  margin-bottom: 10%;
   align-content: center;
-  margin-left: 15%;
+  margin-left: 10%;
+  margin-right: 10%;
   width: 80%;
   height: 100%;
-
-
+  color:  #45969b; 
 }
-
+#imageStart{
+  justify-content: center;
+  margin-bottom: 10%;
+  padding-top: 40%
+}
+#imageWelcome{
+  width: 80%;
+  height: 80%;
+  margin-bottom: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
  #start{
   color:  #45969b; 
-  font-size: 1rem; 
-  line-height: 2rem; 
-  padding: 2rem; 
-  border-radius: 50px; 
+  border-radius: 50%; 
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold; 
-  text-transform: none;
   background-color:transparent;
-  margin-bottom: 0%;
+  margin-bottom: 10%;
   border: 3px solid #f96d15;
-  display: inline-block;
   box-shadow: 2px 2px 7px 1px #f96d15;
+  font-size: 200%;
+  height: 40%;
+  width: 40%;
+  padding: 10% 10%;
+  text-align: center;
 }
-
 main{
   width: 100%;
   height: 100%;
@@ -67,7 +80,6 @@ main{
 section{
   visibility: none;
 }
-
 footer{
   visibility: none;
 }
@@ -82,7 +94,6 @@ input{
   font-size: 100%;
   align-items: center;
 }
-
 .login{
   padding: 5% 5%;
   margin-bottom: 5%;
@@ -92,7 +103,6 @@ input{
   font-size: 150%;
   font-weight: bold;
 }
-
 #formLogin{
   align-items: center;
   font-family: 'Ubuntu', sans-serif;
@@ -107,7 +117,6 @@ input{
   background-color: #50b6bb;
   border-color: white;
 }
-
 #login{
   background-color: #f96d15;
   border-color: white;
@@ -126,7 +135,7 @@ input{
   height: 20%;
   width: 80%;
   margin: 2% 10%;
-  padding: 2% 2%;
+  padding: 2% 0%;
 }
 #home>article>h1{
   text-align: center;

@@ -1,5 +1,5 @@
 
-document.getElementById("pageinit").style.display="block"
+document.getElementById("pageInit").style.display="block"
 document.getElementById("dataLogin").style.display = "none";
 document.getElementById("nameText").style.display = "none";
 document.getElementById("name").style.display = "none";
@@ -11,7 +11,8 @@ document.getElementById("home").style.display = "none";
 document.getElementById("footerMenu").style.display = "none";
 
 const startapp = ()=>{
-  document.getElementById("pageinit").style.display="none";
+  document.getElementById("pageInit").style.display="none";
+  document.getElementById("home").style.display="none";
   document.getElementById("dataLogin").style.display = "block"
 }
 
