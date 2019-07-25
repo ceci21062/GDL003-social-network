@@ -6,7 +6,6 @@
 
 body{
 
-  background-color: #d0ecf2;
   text-align: center;
 }
 
@@ -16,10 +15,13 @@ body{
    position: relative;
  }
  h3 {
-  
+  font-family: 'Ubuntu', sans-serif;
   font-size: 1.17em;
   font-weight: bold;
   padding-top: 3rem;
+  text-align: justify;
+  align-content: center;
+  width: 100%;
 }
 
  article{
@@ -27,17 +29,12 @@ body{
 
  }
 
-#botonstart{
-  background-repeat: no-repeat;
-  background-image: url("https://media.giphy.com/media/3ohzdWVBzNoIazr2so/giphy.gif");
-  background-size: 23rem; 
-  padding-top: 17.5rem;
+#introductionformat{
   margin-top: 1rem;
-  width: 100%;
-  height: 100%
-  
-  ;
-
+  align-content: center;
+  margin-left: 15%;
+  width: 80%;
+  height: 100%;
 
 }
 
