@@ -43,3 +43,9 @@ document.getElementById("login").addEventListener("click", sendHome);*/
   location.reload();
 };
 document.getElementById("logOut").addEventListener("click", sendStart);
+
+
+const adoptbutton =()=>{
+  
+
+}
