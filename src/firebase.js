@@ -36,21 +36,16 @@
           }
           // Sign in with email and pass.
           // [START createwithemail]
-          firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // [START_EXCLUDE]
-            if (errorCode == 'auth/weak-password') {
-              alert('La contraseña es muy debil.');
-            } else {
-              alert(errorMessage);
-            }
+          let promise = firebase.auth().createUserWithEmailAndPassword(email, password);
+          promise.then(function(user) {
+            //Se manda la verificación de cuenta al email registrado
+            firebase.auth().currentUser.sendEmailVerification();
+            alert("Tu cuenta ha sido creada, por favor verificala desde tu email");
+          }, function(error) {
             console.log(error);
-            // [END_EXCLUDE]
           });
-          // [END createwithemail]     
-     }
+            
+     };
       
       
      const initApp = ()=> {
@@ -86,6 +81,20 @@
         document.getElementById('createUser').addEventListener('click', handleSignUp, false )
         
       };
+
+      const signIn = () =>{
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+
+        let promise = firebase.auth().signInWithEmailAndPassword(email, password);
+        promise.then(function(currentUser) {
+          alert("Tu cuenta ha sido loggueada");
+        }, function(error) {
+          console.log(error);
+        });
+      };
+
+      document.getElementById("login").addEventListener("click", signIn);
       
 // acceder a database        
 /* let contactosred =firebase.database().ref("contactosWeb");
@@ -118,3 +127,12 @@ document.getElementById("loginGoogle").addEventListener("click", ()=>{
 });
 
 document.getElementById("login").addEventListener("click", guardarFormulario);
+
+//podemos ver si el usuario esta conectado o no
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log("El usuario esta conectado");
+  } else {
+    console.log("El usuario NO esta conectado");
+  }
+});
