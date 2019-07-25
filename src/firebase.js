@@ -83,7 +83,9 @@
       };
 
       const signIn = () =>{
-        firebase.auth().signInWithEmailAndPassword(email, password);
+        let email = document.getElementById('email').value;
+          let password = document.getElementById('password').value;
+        let promise = firebase.auth().signInWithEmailAndPassword(email, password);
         promise.then(function(currentUser) {
           alert("Tu cuenta ha sido loggueada");
         }, function(error) {
