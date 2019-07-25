@@ -31,10 +31,14 @@ const enterRegister = () => {
 };
 document.getElementById("register").addEventListener("click", enterRegister);
  
-const sendHome = () => {
+/* const sendHome = () => {
   document.getElementById("dataLogin").style.display = "none";
   document.getElementById("home").style.display = "block";
   
 };
-document.getElementById("login").addEventListener("click", sendHome);
+document.getElementById("login").addEventListener("click", sendHome);*/
 
+ const sendStart = () => {
+  location.reload();
+};
+document.getElementById("logOut").addEventListener("click", sendStart);
