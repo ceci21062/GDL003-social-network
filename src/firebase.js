@@ -12,11 +12,6 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
 
-      let bigOne = document.getElementById('bigOne');
-      let dbRef = firebase.database().ref().child('text');
-      dbRef.on('value', snap => bigOne.innerText = snap.val());
-
-
      const handleSignUp =() => {
           let nameUser = document.getElementById('name').value;
           let email = document.getElementById('email').value;
@@ -85,13 +80,30 @@
       const signIn = () =>{
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
+        let resetAlerts = document.getElementsByClassName('alerts');
+        resetAlerts.innerHTML = "";
 
         let promise = firebase.auth().signInWithEmailAndPassword(email, password);
         promise.then(function(currentUser) {
+          document.getElementById("dataLogin").style.display = "none";
+          document.getElementById("home").style.display = "block";
+          document.getElementById("logOut").style.display = "block";
           alert("Tu cuenta ha sido loggueada");
         }, function(error) {
-          console.log(error);
-        });
+          if(error.code === "auth/wrong-password"){
+          document.getElementById("wrongPassword").innerHTML = "Tu contraseña es incorrecta. Verifica que sea correcta";   
+          console.log("hasta el error de la contraseña");
+         } else if (error.code === "auth/invalid-email") {
+          document.getElementById("wrongEmail").innerHTML = "Tu email es incorrecto. Verifica que sea correcto";
+          console.log("hasta el error del email mal escrito");
+        } else if(error.code === "auth/user-not-found"){
+          document.getElementById("wrongEmail").innerHTML = "Usuario no registrado";
+        console.log("hasta el error del usuario no registrado");  
+        } 
+          else {
+            console.log(error);
+          }
+          });
       };
 
       document.getElementById("login").addEventListener("click", signIn);
@@ -126,7 +138,7 @@ document.getElementById("loginGoogle").addEventListener("click", ()=>{
   });
 });
 
-document.getElementById("login").addEventListener("click", guardarFormulario);
+//document.getElementById("login").addEventListener("click", guardarFormulario);
 
 //podemos ver si el usuario esta conectado o no
 firebase.auth().onAuthStateChanged(function(user) {
@@ -136,3 +148,13 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log("El usuario NO esta conectado");
   }
 });
+
+//cerrar sesion
+const logOut = () =>{
+  firebase.auth().signOut().then(function() {
+  console.log("el usuario se desconectó correctamente");
+}).catch(function(error) {
+console.log(error);
+});
+};
+document.getElementById("logOut").addEventListener("click", logOut);
