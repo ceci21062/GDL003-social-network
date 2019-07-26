@@ -76,9 +76,7 @@ main{
   justify-content: center;
   align-items: center;
 }
-section{
-  visibility: none;
-}
+
 footer{
   visibility: none;
 }
@@ -155,6 +153,10 @@ input{
 
 .alerts{
   color: red;
+}
+#adoptPage{
+  background-color: aqua;
+  
 }
 /*#search{
   background-image: url("https://i.ibb.co/yqFLM7Q/Whats-App-Image-2019-07-25-at-12-04-45-AM.jpg");

@@ -8,14 +8,16 @@ document.getElementById("confirmText").style.display = "none";
 document.getElementById("confirmPassword").style.display = "none"; 
 document.getElementById("createUser").style.display = "none";
 document.getElementById("enterWithGoogle").style.display = "none";
-document.getElementById("home").style.display = "none";
 document.getElementById("footerMenu").style.display = "none";
+document.getElementById("home").style.display = "none"
+document.getElementById("adoptPage").style.display = "none";
 
 const startapp = ()=>{
   document.getElementById("pageInit").style.display="none";
   document.getElementById("home").style.display="none";
   document.getElementById("dataLogin").style.display = "block";
   document.getElementById("headerLogo").style.display = "block";
+  document.getElementById("home").style.display = "none";
 }
 
 document.getElementById("start").addEventListener("click", startapp);
@@ -56,4 +58,5 @@ const sendAdopt = () => {
   document.getElementById("adoptPage").style.display = "block";
   document.getElementById("home").style.display = "none";
 }
+
 document.getElementById("adopt").addEventListener("click", sendAdopt);
