@@ -66,3 +66,11 @@ const sendAdopt = () => {
 }
 
 document.getElementById("adopt").addEventListener("click", sendAdopt);
+
+const goHome = () => {
+  document.getElementById("adoptPage").style.display = "none";
+  document.getElementById("findPage").style.display = "none";
+  document.getElementById("home").style.display = "block";
+  document.getElementById("footerMenu").style.display = "none";
+}
+document.getElementById("goHome").addEventListener("click", goHome);

@@ -151,7 +151,9 @@ input{
 }
 
 .alerts{
+  font-family: 'Ubuntu', sans-serif;
   color: red;
+  margin-bottom: 5%;
 }
 #findPage{
   margin-bottom: 100%;
@@ -167,9 +169,9 @@ input{
 }
 footer{
   background-color: white;
-  position: static;
+  position: fixed;
   width: 100%;
-  
+  bottom: 0%;
 }
 #goHome{
   width: 15%;
@@ -185,6 +187,10 @@ footer{
   width: 15%;
   height: 15%;
   border-radius: 50%;
+}
+#passwordReset{
+  text-decoration: underline;
+  font-family: 'Ubuntu', sans-serif;
 }
 /*#loginGoogle{
   background-color: #50b6bb;
