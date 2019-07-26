@@ -157,3 +157,16 @@ console.log(error);
 });
 };
 document.getElementById("logOut").addEventListener("click", logOut);
+
+//Mandar email para restablecer contraseña
+const passwordReset = () =>{
+  var auth = firebase.auth();
+var emailAddress = document.getElementById("email").value;
+
+auth.sendPasswordResetEmail(emailAddress).then(function() {
+  console.log("ya se envió el correo");
+}).catch(function(error) {
+  console.log(error);
+});
+};
+document.getElementById("passwordReset").addEventListener("click", passwordReset);
