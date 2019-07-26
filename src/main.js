@@ -10,15 +10,18 @@ document.getElementById("createUser").style.display = "none";
 document.getElementById("enterWithGoogle").style.display = "none";
 document.getElementById("home").style.display = "none";
 document.getElementById("footerMenu").style.display = "none";
+document.getElementById("findPage").style.display = "none";
+document.getElementById("adoptPage").style.display = "none";
 
-const startapp = ()=>{
+
+const startApp = ()=>{
   document.getElementById("pageInit").style.display="none";
   document.getElementById("home").style.display="none";
   document.getElementById("dataLogin").style.display = "block";
   document.getElementById("headerLogo").style.display = "block";
 }
 
-document.getElementById("start").addEventListener("click", startapp);
+document.getElementById("start").addEventListener("click", startApp);
 
 const enterRegister = () => {
   document.getElementById("nameText").style.display = "inline-block";
@@ -48,12 +51,16 @@ document.getElementById("logOut").addEventListener("click", sendStart);
 
 const sendFind = () => {
   document.getElementById("findPage").style.display = "block";
+  document.getElementById("adoptPage").style.display = "none";
   document.getElementById("home").style.display = "none";
+  document.getElementById("footerMenu").style.display = "block";
 }
 document.getElementById("find").addEventListener("click", sendFind);
 
 const sendAdopt = () => {
   document.getElementById("adoptPage").style.display = "block";
+  document.getElementById("findPage").style.display = "none";
   document.getElementById("home").style.display = "none";
+  document.getElementById("footerMenu").style.display = "block";
 }
 document.getElementById("adopt").addEventListener("click", sendAdopt);
