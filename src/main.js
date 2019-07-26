@@ -19,6 +19,7 @@ const startApp = ()=>{
   document.getElementById("home").style.display="none";
   document.getElementById("dataLogin").style.display = "block";
   document.getElementById("headerLogo").style.display = "block";
+  document.getElementById("home").style.display = "none";
 }
 
 document.getElementById("start").addEventListener("click", startApp);
@@ -63,6 +64,7 @@ const sendAdopt = () => {
   document.getElementById("home").style.display = "none";
   document.getElementById("footerMenu").style.display = "block";
 }
+
 document.getElementById("adopt").addEventListener("click", sendAdopt);
 
 const goHome = () => {
