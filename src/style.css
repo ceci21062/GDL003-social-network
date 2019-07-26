@@ -3,13 +3,10 @@
   margin: 0;
   padding: 0;
 }
-
 body{
-  background-color: white;
+  background-color: #45969b;
   text-align: center;
 }
-
-
  header{
    background-color: white;
    position: relative;
@@ -76,7 +73,9 @@ main{
   justify-content: center;
   align-items: center;
 }
-
+section{
+  visibility: none;
+}
 footer{
   visibility: none;
 }
@@ -154,19 +153,39 @@ input{
 .alerts{
   color: red;
 }
+#findPage{
+  margin-bottom: 100%;
+  width: 100%;
+  height: 100%;
+
+}
 #adoptPage{
-  background-color: aqua;
+  margin-bottom: 100%;
+  width: 100%;
+  height: 100%;
   
 }
-/*#search{
-  background-image: url("https://i.ibb.co/yqFLM7Q/Whats-App-Image-2019-07-25-at-12-04-45-AM.jpg");
+footer{
+  background-color: white;
+  position: static;
+  width: 100%;
+  
 }
-#home{
-  background-image: url("https://i.ibb.co/6NyPWf7/Whats-App-Image-2019-07-25-at-12-15-51-AM.jpg");
+#goHome{
+  width: 15%;
+  height: 15%;
+  border-radius: 50%;
 }
-#user{
-  background-image: url("https://i.ibb.co/sJtDjWM/Whats-App-Image-2019-07-25-at-12-10-07-AM.jpg");
-}*/
+#search{
+  width: 15%;
+  height: 15%;
+  border-radius: 50%;
+}
+#goUser{
+  width: 15%;
+  height: 15%;
+  border-radius: 50%;
+}
 /*#loginGoogle{
   background-color: #50b6bb;
   border-color: white;
