@@ -12,7 +12,7 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
 
-     const handleSignUp =() => {
+    /* const handleSignUp =() => {
           let nameUser = document.getElementById('name').value;
           let email = document.getElementById('email').value;
           let password = document.getElementById('password').value;
@@ -40,44 +40,85 @@
             console.log(error);
           });
             
-     };
-      
-      
+     }; */
+     
+
      const initApp = ()=> {
         // Listening for auth state changes.
         // [START authstatelistener]
-        firebase.auth().onAuthStateChanged(function(user) {
-          // [START_EXCLUDE silent]
-          
-          // [END_EXCLUDE]
-          if (user) {
-            // User is signed in.
-            let displayName = user.displayName;
-            let email = user.email;
-            let emailVerified = user.emailVerified;
-            let photoURL = user.photoURL;
-            let isAnonymous = user.isAnonymous;
-            let uid = user.uid;
-            let providerData = user.providerData;
-            // [START_EXCLUDE]             
+  
+const user = firebase.auth().currentUser;
+
+if (user != null) {
+  user.providerData.forEach(function (profile) {
+    console.log("Sign-in provider: " + profile.providerId);
+    console.log("  Provider-specific UID: " + profile.uid);
+    console.log("  Name: " + profile.displayName);
+    console.log("  Email: " + profile.email);
+    console.log("  Photo URL: " + profile.photoURL);
+  });
+}
+
+        //podemos ver si el usuario esta conectado o no
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    let displayName = user.displayName;
+    let email = user.email;
+    let emailVerified = user.emailVerified;
+    let photoURL = user.photoURL;
+    let uid = user.uid;
+    let providerData = user.providerData;
+    console.log(displayName);
+    console.log(photoURL);
+    
+    console.log("El usuario esta conectado");
+  } else {
+    console.log("El usuario NO esta conectado");
+  }
+});
 
             
               //document.getElementById('createUser').textContent = 'Ingresa con Google';
-      
-            
+      ////////////////////////////////////////////////
+const uiConfig = {
+  signInSuccessUrl: 'home',
+  signInOptions: [
+    // Leave the lines as is for the providers you want to offer your users.
+  firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+   // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+   //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+   //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+   firebase.auth.EmailAuthProvider.PROVIDER_ID,
+   //firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+   //firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+  ],
+  // tosUrl and privacyPolicyUrl accept either url string or a callback
+  // function.
+  // Terms of service url/callback.
+  tosUrl: '<your-tos-url>',
+  // Privacy policy url/callback.
+  privacyPolicyUrl : '<bla bla bla>'
+};
+
+// Initialize the FirebaseUI Widget using Firebase.
+const ui = new firebaseui.auth.AuthUI(firebase.auth());
+// The start method will wait until the DOM is loaded.
+ui.start('#firebaseui-auth-container', uiConfig);
+ /////////////////////////////////////////// 
+}           
 // [END_EXCLUDE]
-            } 
+            
  // [START_EXCLUDE silent]
          
 // [END_EXCLUDE]
-        });
+       
 // [END authstatelistener]
         
-        document.getElementById('createUser').addEventListener('click', handleSignUp, false )
+  //document.getElementById('createUser').addEventListener('click', handleSignUp, false );
         
-      };
+      
 
-      const signIn = () =>{
+      /* const signIn = () =>{
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
         let resetAlerts = document.getElementsByClassName('alerts');
@@ -87,7 +128,9 @@
         promise.then(function(currentUser) {
           document.getElementById("dataLogin").style.display = "none";
           document.getElementById("home").style.display = "block";
+          document.getElementById("headerLogo").style.display = "block";
           document.getElementById("logOut").style.display = "block";
+          document.getElementById("footerMenu").style.display = "block";
           alert("Tu cuenta ha sido loggueada");
         }, function(error) {
           if(error.code === "auth/wrong-password"){
@@ -105,8 +148,24 @@
           });
       };
 
-      document.getElementById("login").addEventListener("click", signIn);
+      document.getElementById("login").addEventListener("click", signIn); */
       
+  //cerrar sesion
+
+
+//Mandar email para restablecer contraseña
+/* const passwordReset = () =>{
+  let auth = firebase.auth();
+  let emailAddress = document.getElementById("email").value;
+
+auth.sendPasswordResetEmail(emailAddress).then(function() {
+  console.log("ya se envió el correo");
+}).catch(function(error) {
+  console.log(error);
+});
+};
+document.getElementById("passwordReset").addEventListener("click", passwordReset); */
+
 // acceder a database        
 /* let contactosred =firebase.database().ref("contactosWeb");
 const guardarFormulario = (e) =>{
@@ -126,8 +185,9 @@ window.onload = function() {
   initApp();
 };
 
-document.getElementById("loginGoogle").addEventListener("click", ()=>{
+/*document.getElementById("firebaseui-auth-container").addEventListener("click", ()=>{
   let provider = new firebase.auth.GoogleAuthProvider();
+  
   firebase.auth().signInWithPopup(provider).then(function(user){
       alert("Google signIn");
       console.log(user);
@@ -135,38 +195,10 @@ document.getElementById("loginGoogle").addEventListener("click", ()=>{
       alert("Error");
       console.log(error);
   });
-});
+});*/
 
 //document.getElementById("login").addEventListener("click", guardarFormulario);
 
-//podemos ver si el usuario esta conectado o no
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    console.log("El usuario esta conectado");
-  } else {
-    console.log("El usuario NO esta conectado");
-  }
-});
 
-//cerrar sesion
-const logOut = () =>{
-  firebase.auth().signOut().then(function() {
-  console.log("el usuario se desconectó correctamente");
-}).catch(function(error) {
-console.log(error);
-});
-};
-document.getElementById("logOut").addEventListener("click", logOut);
 
-//Mandar email para restablecer contraseña
-const passwordReset = () =>{
-  var auth = firebase.auth();
-var emailAddress = document.getElementById("email").value;
 
-auth.sendPasswordResetEmail(emailAddress).then(function() {
-  console.log("ya se envió el correo");
-}).catch(function(error) {
-  console.log(error);
-});
-};
-document.getElementById("passwordReset").addEventListener("click", passwordReset);

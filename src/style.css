@@ -28,7 +28,6 @@ body{
    margin-top: 10%;
  }
 #logOut{
- display: none;
   float: right;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold; 

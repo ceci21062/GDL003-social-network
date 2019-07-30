@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Find Your Pet</title>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link type = " text/css " rel = " stylesheet " href = " https://cdn.firebase.com/libs/firebaseui/4.1.0/firebaseui.css " />   
+</head>
+
+<body>
+    <header id="headerLogo">
+        <p id="logOut">Cerrar sesión</p>
+        <img src="FindYourPet.png" alt="Logo Find Your Pet" />
+    </header>
+    <main>
+<section id="home">
+        <img id="imageHome" src="https://media.giphy.com/media/82kVFAaz0Bd9vKAfuS/giphy.gif"
+            alt="Imagen de humano abrazando a su mascota">
+        <article id="select">
+            <h1>¿Como iniciar?</h1>
+            <p>Selecciona con que opcion te gustaria comenzar, si eliges
+                <strong>Encuentra</strong>
+                podras acceder a las publicaciones o publicar sobre mascotas extraviadas.Y si lo que estas buscando
+                es
+                una
+                seccion para adoptar y dar en adopcion elige
+                <strong>Adopta</strong>
+                . </p>
+        </article>
+        <img id="find" src="https://i.ibb.co/6wdmh7M/Whats-App-Image-2019-07-25-at-12-44-04-AM.jpg" alt="">
+        <img id="adopt" src="https://i.ibb.co/FmGfkdY/Whats-App-Image-2019-07-25-at-12-35-32-AM.jpg" alt="">
+    </section>
+    <section id="findPage">
+        <h1>encuentra</h1>
+    </section>
+    <section id="adoptPage">
+        <h1>adopta</h1>
+        <textarea name="publication" id="publication" cols="30" rows="10"></textarea>
+    </section>
+    <section id="infoUser">
+      <h1>Perfil</h1>
+    </section>
+    </main>
+    <footer id="footerMenu">
+        <img id="goHome" src="https://i.ibb.co/6NyPWf7/Whats-App-Image-2019-07-25-at-12-15-51-AM.jpg" alt="Home">
+        <img id="search" src="https://i.ibb.co/yqFLM7Q/Whats-App-Image-2019-07-25-at-12-04-45-AM.jpg" alt="Buscar">
+        <img id="goUser" src="https://i.ibb.co/sJtDjWM/Whats-App-Image-2019-07-25-at-12-10-07-AM.jpg" alt="Usuario">
+    </footer>
+  <!-- Loads the entire Firebase JavaScript SDK -->
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+  <script src="firebase.js"></script>
+  <script src="home.js"></script>
+  <script src = "https://cdn.firebase.com/libs/firebaseui/4.1.0/firebaseui.js "></script> 
+  
+</body>
+
+</html>
