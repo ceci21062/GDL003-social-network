@@ -12,6 +12,7 @@ document.getElementById("home").style.display = "none";
 document.getElementById("footerMenu").style.display = "none";
 document.getElementById("findPage").style.display = "none";
 document.getElementById("adoptPage").style.display = "none";
+document.getElementById("userPage").style.display = "none";
 
 
 const startApp = ()=>{
@@ -37,12 +38,12 @@ const enterRegister = () => {
 };
 document.getElementById("register").addEventListener("click", enterRegister);
  
-/* const sendHome = () => {
+const sendHome = () => {
   document.getElementById("dataLogin").style.display = "none";
   document.getElementById("home").style.display = "block";
-  
+  document.getElementById("headerLogo").style.display = "block";  
 };
-document.getElementById("login").addEventListener("click", sendHome);*/
+document.getElementById("login").addEventListener("click", sendHome);
 
  const sendStart = () => {
   location.reload();
@@ -72,3 +73,11 @@ const goHome = () => {
   document.getElementById("footerMenu").style.display = "none";
 }
 document.getElementById("goHome").addEventListener("click", goHome);
+
+const goUser = () => {
+  document.getElementById("adoptPage").style.display = "none";
+  document.getElementById("findPage").style.display = "none";
+  document.getElementById("home").style.display = "none";
+  document.getElementById("userPage").style.display = "block"; 
+}
+document.getElementById("goUser").addEventListener("click", goUser);

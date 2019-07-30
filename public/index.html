@@ -1,65 +1,95 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/6.3.1/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/6.3.1/firebase-auth.js"></script>
-    <script defer src="/__/firebase/6.3.1/firebase-database.js"></script>
-    <script defer src="/__/firebase/6.3.1/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/6.3.1/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Find Your Pet</title>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+<body>
+  <header id="headerLogo">
+    <p id="logOut">Cerrar sesión</p>
+    <img src="FindYourPet.png" alt="Logo Find Your Pet" />
+  </header>
+  <main>
+    <section id="pageInit">
+      <img id="logoPageInit" src="FindYourPet.png" alt="Logo Find Your Pet" />
+      <article id="introductionFormat">
+        <h3>Bienvenido estas en buenas manos.
+          Estas en Find Your Pets,
+          somos una comunidad enfocada en la adopcion
+          y busqueda de tus mascotas.
+        </h3>
+      </article>
+      <article id="imageStart">
+        <img id="imageWelcome" src="https://data.whicdn.com/images/44687352/original.gif" alt="">
+        <img id="start" src="https://i.ibb.co/yXcdybT/Whats-App-Image-2019-07-25-at-6-27-47-PM.jpg" alt="Inicio">
+      </article>
+    </section>
+    <section id="dataLogin">
+      <form id="formLogin">
+        <h1 id="nameText">Ingresa tu nombre de usuario</h1>
+        <input type="text" id="name" placeholder="Nombre de usuario" required />
+        <h1>Ingresa tu correo electronico</h1>
+        <input type="text" id="email" placeholder="Correo electronico" required />
+        <h1>Ingresa tu contraseña</h1>
+        <input type="password" id="password" placeholder="contraseña" required />
+        <p id="wrong" class="alerts"></p>
+        <p id="passwordReset">¿Olvidaste tu contraseña?</p>
+        <h1 id="confirmText">Confirma tu contraseña</h1>
+        <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required />
+      </form>
+      <button id="login" class="login">Entrar</button>
+      <button id="loginGoogle" class="login">Registro con Google</button>
+      <button id="register" class="login">Registrate</button>
+      <button id="createUser" class="login">Crear usuario</button>
+    </section>
+    <button id="enterWithGoogle" class="login">Entrar con Google</button>
+    </section>
+    <section id="home">
+      <p id="logOut">Cerrar sesión</p>
+      <img id="imageHome" src="https://media.giphy.com/media/82kVFAaz0Bd9vKAfuS/giphy.gif"
+        alt="Imagen de humano abrazando a su mascota">
+      <article id="select">
+        <h1>¿Como iniciar?</h1>
+        <p>Selecciona con que opcion te gustaria comenzar, si eliges
+          <strong>Encuentra</strong>
+          podras acceder a las publicaciones o publicar sobre mascotas extraviadas.Y si lo que estas buscando es una
+          seccion para adoptar y dar en adopcion elige
+          <strong>Adopta</strong>
+          . </p>
+      </article>
+      <img id="find" src="https://i.ibb.co/6wdmh7M/Whats-App-Image-2019-07-25-at-12-44-04-AM.jpg" alt="Encuentra">
+      <img id="adopt" src="https://i.ibb.co/b2pLvN1/Whats-App-Image-2019-07-25-at-4-12-56-PM.jpg" alt="Adopta">
+    </section>
+    <section id="findPage">
+      <h1>encuentra</h1>
+      <textarea id="textFind" required></textarea>
+      <button id="postFind">Postear</button>
+    </section>
+    <section id="adoptPage">
+      <h1>adopta</h1>
+      <textarea id="textAdopt" required></textarea>
+      <button id="postAdopt">Postear</button>
+    </section>
+    <section id="userPage">
+      <article id="userName"></article>
+      <article id="userPassword"></article>
+    </section>
+  </main>
+  <footer id="footerMenu">
+    <img id="goHome" src="https://i.ibb.co/6NyPWf7/Whats-App-Image-2019-07-25-at-12-15-51-AM.jpg" alt="Home">
+    <img id="search" src="https://i.ibb.co/yqFLM7Q/Whats-App-Image-2019-07-25-at-12-04-45-AM.jpg" alt="Buscar">
+    <img id="goUser" src="https://i.ibb.co/sJtDjWM/Whats-App-Image-2019-07-25-at-12-10-07-AM.jpg" alt="Usuario">
+  </footer>
+  <!-- Loads the entire Firebase JavaScript SDK -->
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+  <script src="firebase.js"></script>
+  <script src="main.js"></script>
+</body>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
 </html>

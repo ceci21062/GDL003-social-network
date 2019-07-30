@@ -13,7 +13,7 @@
       firebase.initializeApp(firebaseConfig);
 
      const handleSignUp =() => {
-          let nameUser = document.getElementById('name').value;
+          let displayName = document.getElementById('name').value;
           let email = document.getElementById('email').value;
           let password = document.getElementById('password').value;
           let confirmPassword = document.getElementById('confirmPassword').value;
@@ -141,12 +141,17 @@ document.getElementById("loginGoogle").addEventListener("click", ()=>{
 
 //podemos ver si el usuario esta conectado o no
 firebase.auth().onAuthStateChanged(function(user) {
+  firebase.auth().currentUser;
   if (user) {
     console.log("El usuario esta conectado");
+    console.log(user.email);
+    console.log(user.displayName);
+    document.getElementById("userName").innerHTML=user.email;
   } else {
     console.log("El usuario NO esta conectado");
   }
 });
+
 
 //cerrar sesion
 const logOut = () =>{
@@ -170,3 +175,26 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 });
 };
 document.getElementById("passwordReset").addEventListener("click", passwordReset);
+
+//Escribir un mensaje en el muro
+function writeNewPost(uid, username, picture, title, body) {
+  // A post entry.
+  var postData = {
+    author: username,
+    uid: uid,
+    body: body,
+    title: title,
+    starCount: 0,
+    authorPic: picture
+  };
+
+  // Get a key for a new Post.
+  var newPostKey = firebase.database().ref().child('posts').push().key;
+
+  // Write the new post's data simultaneously in the posts list and the user's post list.
+  var updates = {};
+  updates['/posts/' + newPostKey] = postData;
+  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+  return firebase.database().ref().update(updates);
+}
