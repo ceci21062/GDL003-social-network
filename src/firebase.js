@@ -160,7 +160,7 @@ document.getElementById("logOut").addEventListener("click", logOut);
 
 //Mandar email para restablecer contraseña
 const passwordReset = () =>{
-  var auth = firebase.auth();
+var auth = firebase.auth();
 var emailAddress = document.getElementById("email").value;
 
 auth.sendPasswordResetEmail(emailAddress).then(function() {
@@ -170,3 +170,24 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 });
 };
 document.getElementById("passwordReset").addEventListener("click", passwordReset);
+
+
+let Crearmsj= firebase.database().ref("publicaciones");
+const post = (e)=>{
+  e.preventDefault();
+let publication= document.getElementById("publication").value;
+let email= document.getElementById("email").value;
+
+let nuevoMSJRef =Crearmsj.push();
+nuevoMSJRef.set({
+    email: email,
+    publicacion: publication,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+});
+
+}
+document.getElementById('crearPost').addEventListener('click',post);
+
+
+
+
