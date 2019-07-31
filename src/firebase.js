@@ -62,15 +62,21 @@ if (user != null) {
         //podemos ver si el usuario esta conectado o no
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    let displayName = user.displayName;
-    let email = user.email;
-    let emailVerified = user.emailVerified;
-    let photoURL = user.photoURL;
-    let uid = user.uid;
-    let providerData = user.providerData;
-    console.log(displayName);
-    console.log(photoURL);
-    
+    document.getElementById("infoUser").innerHTML+=
+    `<div class = "styleInfo">
+    <h1>Perfil</h1>
+    <img src =${user.photoURL} alt = "imagen de usuario"  width="20%" height="20%" >
+    <h2>Nombre de Usuario:<br>${user.displayName}</h2>
+    <h2>Correo Electronico:<br>${user.email}</h2>
+    </div>`
+    document.getElementById("infoUserAdopt").innerHTML+=
+    `<div class = "styleInfoSelect">
+    <img src =${user.photoURL} alt = "imagen de usuario" width="15%" height="15%">
+    </div>`
+    document.getElementById("infoUserFind").innerHTML+=
+    `<div class = "styleInfoSelect">
+    <img src =${user.photoURL} alt = "imagen de usuario" width="15%" height="15%">
+    </div>`
     console.log("El usuario esta conectado");
   } else {
     console.log("El usuario NO esta conectado");

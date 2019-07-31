@@ -14,6 +14,8 @@ const sendStart = () => {
     document.getElementById("adoptPage").style.display = "none";
     document.getElementById("home").style.display = "none";
     document.getElementById("footerMenu").style.display = "block";
+    document.getElementById("infoUser").style.display = "none";
+
   }
   document.getElementById("find").addEventListener("click", sendFind);
   
@@ -22,6 +24,8 @@ const sendStart = () => {
     document.getElementById("findPage").style.display = "none";
     document.getElementById("home").style.display = "none";
    document.getElementById("footerMenu").style.display = "block";
+   document.getElementById("infoUser").style.display = "none";
+
   }
   
   document.getElementById("adopt").addEventListener("click", sendAdopt);
