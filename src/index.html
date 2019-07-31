@@ -8,13 +8,13 @@
   <title>Find Your Pet</title>
   <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link type = " text/css " rel = " stylesheet " href = " https://cdn.firebase.com/libs/firebaseui/4.1.0/firebaseui.css " />   
 </head>
 
 <body>
-  <header id="headerLogo">
-    <p id="logOut">Cerrar sesión</p>
-    <img src="FindYourPet.png" alt="Logo Find Your Pet" />
-  </header>
+    <header id="headerLogo">
+        <img src="FindYourPet.png" alt="Logo Find Your Pet" />
+    </header>
   <main>
     <section id="pageInit">
       <img id="logoPageInit" src="FindYourPet.png" alt="Logo Find Your Pet" />
@@ -32,22 +32,15 @@
     </section>
     <section id="dataLogin">
       <form id="formLogin">
-        <h1 id="nameText">Ingresa tu nombre de usuario</h1>
-        <input type="text" id="name" placeholder="Nombre de usuario" required />
         <h1>Ingresa tu correo electronico</h1>
         <input type="text" id="email" placeholder="Correo electronico" required />
         <h1>Ingresa tu contraseña</h1>
         <input type="password" id="password" placeholder="contraseña" required />
         <p id="wrong" class="alerts"></p>
         <p id="passwordReset">¿Olvidaste tu contraseña?</p>
-        <h1 id="confirmText">Confirma tu contraseña</h1>
-        <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required />
       </form>
       <button id="login" class="login">Entrar</button>
-      <button id="loginGoogle" class="login">Registro con Google</button>
-      <button id="register" class="login">Registrate</button>
-      <button id="createUser" class="login">Crear usuario</button>
-    <button id="enterWithGoogle" class="login">Entrar con Google</button>
+      <div id="firebaseui-auth-container">contenedor para registro con google</div>
     </section>
     <section id="home">
       <p id="logOut">Cerrar sesión</p>
@@ -87,6 +80,8 @@
   <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
   <script src="firebase.js"></script>
   <script src="main.js"></script>
+  <script src = "https://cdn.firebase.com/libs/firebaseui/4.1.0/firebaseui.js "></script> 
+  
 </body>
 
 </html>

@@ -28,7 +28,6 @@ body{
    margin-top: 10%;
  }
 #logOut{
- display: none;
   float: right;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold; 
@@ -192,8 +191,15 @@ footer{
   text-decoration: underline;
   font-family: 'Ubuntu', sans-serif;
 }
-/*#loginGoogle{
-  background-color: #50b6bb;
-  border-color: white;
-}*/
-
+.styleInfo{
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  color: #307e7e;
+  margin-top: 10%;
+  margin-left: -30%;
+  margin-right: -30%;
+  font-size: 60%;
+}
+.styleInfoSelect{
+  text-align: left;
+}
