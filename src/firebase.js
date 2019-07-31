@@ -12,8 +12,9 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
 
-    /* const handleSignUp =() => {
-          let nameUser = document.getElementById('name').value;
+     const handleSignUp =() => {
+          let displayName = document.getElementById('name').value;
+
           let email = document.getElementById('email').value;
           let password = document.getElementById('password').value;
           let confirmPassword = document.getElementById('confirmPassword').value;
@@ -195,7 +196,10 @@ window.onload = function() {
   let provider = new firebase.auth.GoogleAuthProvider();
   
   firebase.auth().signInWithPopup(provider).then(function(user){
-      alert("Google signIn");
+    document.getElementById("dataLogin").style.display = "none";
+          document.getElementById("home").style.display = "block";
+          document.getElementById("logOut").style.display = "block"; 
+    alert("Google signIn");
       console.log(user);
   }).catch(function(error){
       alert("Error");
@@ -206,5 +210,56 @@ window.onload = function() {
 //document.getElementById("login").addEventListener("click", guardarFormulario);
 
 
+//podemos ver si el usuario esta conectado o no
+firebase.auth().onAuthStateChanged(function(user) {
+  firebase.auth().currentUser;
+  if (user) {
+    console.log("El usuario esta conectado");
+    console.log(user.email);
+    console.log(user.displayName);
+    document.getElementById("userName").innerHTML=user.email;
+  } else {
+    console.log("El usuario NO esta conectado");
+  }
+});
 
+
+//cerrar sesion
+const logOut = () =>{
+  firebase.auth().signOut().then(function() {
+  console.log("el usuario se desconectó correctamente");
+}).catch(function(error) {
+console.log(error);
+});
+};
+document.getElementById("logOut").addEventListener("click", logOut);
+
+//Mandar email para restablecer contraseña
+const passwordReset = () =>{
+var auth = firebase.auth();
+var emailAddress = document.getElementById("email").value;
+
+auth.sendPasswordResetEmail(emailAddress).then(function() {
+  console.log("ya se envió el correo");
+}).catch(function(error) {
+  console.log(error);
+});
+};
+document.getElementById("passwordReset").addEventListener("click", passwordReset);
+
+let crearMsj= firebase.database().ref("publicaciones");
+const post = (e)=>{
+  e.preventDefault();
+let publication= document.getElementById("publication").value;
+let email= document.getElementById("email").value;
+
+let nuevoMsjRef =crearMsj.push();
+nuevoMsjRef.set({
+    email: email,
+    publicacion: publication,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+});
+
+}
+document.getElementById('crearPost').addEventListener('click',post);
 
