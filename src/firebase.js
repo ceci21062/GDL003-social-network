@@ -168,7 +168,7 @@ document.getElementById("logOut").addEventListener("click", logOut);
 
 //Mandar email para restablecer contraseña
 const passwordReset = () =>{
-  var auth = firebase.auth();
+var auth = firebase.auth();
 var emailAddress = document.getElementById("email").value;
 
 auth.sendPasswordResetEmail(emailAddress).then(function() {
@@ -179,25 +179,18 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 };
 document.getElementById("passwordReset").addEventListener("click", passwordReset);
 
-//Escribir un mensaje en el muro
-function writeNewPost(uid, username, picture, title, body) {
-  // A post entry.
-  var postData = {
-    author: username,
-    uid: uid,
-    body: body,
-    title: title,
-    starCount: 0,
-    authorPic: picture
-  };
+let crearMsj= firebase.database().ref("publicaciones");
+const post = (e)=>{
+  e.preventDefault();
+let publication= document.getElementById("publication").value;
+let email= document.getElementById("email").value;
 
-  // Get a key for a new Post.
-  var newPostKey = firebase.database().ref().child('posts').push().key;
+let nuevoMsjRef =crearMsj.push();
+nuevoMsjRef.set({
+    email: email,
+    publicacion: publication,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+});
 
-  // Write the new post's data simultaneously in the posts list and the user's post list.
-  var updates = {};
-  updates['/posts/' + newPostKey] = postData;
-  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-
-  return firebase.database().ref().update(updates);
 }
+document.getElementById('crearPost').addEventListener('click',post);
