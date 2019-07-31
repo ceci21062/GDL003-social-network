@@ -10,8 +10,8 @@
           appId: "1:13483930838:web:bd5d910cb6c4e465"
       };
       // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      db=firebase.firestore( firebase.initializeApp(firebaseConfig));
+      let app = firebase.initializeApp(firebaseConfig);
+          db=firebase.firestore(app);
 
      const handleSignUp =() => {
           let displayName = document.getElementById('name').value;
