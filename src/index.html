@@ -13,10 +13,11 @@
 
 <body>
     <header id="headerLogo">
+        <p id="logOut">Cerrar sesión</p>
         <img src="FindYourPet.png" alt="Logo Find Your Pet" />
     </header>
   <main>
-    <section id="pageInit">
+    <section id="pageInit" class="pages">
       <img id="logoPageInit" src="FindYourPet.png" alt="Logo Find Your Pet" />
       <article id="introductionFormat">
         <h3>Bienvenido estas en buenas manos.
@@ -30,20 +31,25 @@
         <img id="start" src="https://i.ibb.co/yXcdybT/Whats-App-Image-2019-07-25-at-6-27-47-PM.jpg" alt="Inicio">
       </article>
     </section>
-    <section id="dataLogin">
+    <section id="dataLogin" class="pages">
       <form id="formLogin">
-        <h1>Ingresa tu correo electronico</h1>
-        <input type="text" id="email" placeholder="Correo electronico" required />
-        <h1>Ingresa tu contraseña</h1>
-        <input type="password" id="password" placeholder="contraseña" required />
-        <p id="wrong" class="alerts"></p>
-        <p id="passwordReset">¿Olvidaste tu contraseña?</p>
+          <h1 id="nameText">Ingresa tu nombre de usuario</h1>
+          <input type="text" id="name" placeholder="Nombre de usuario" required />
+          <h1>Ingresa tu correo electronico</h1>
+          <input type="text" id="email" placeholder="Correo electronico" required />
+          <h1>Ingresa tu contraseña</h1>
+          <input type="password" id="password" placeholder="contraseña" required />
+          <p id="wrong" class="alerts"></p>
+          <p id="passwordReset">¿Olvidaste tu contraseña?</p>
+          <h1 id="confirmText">Confirma tu contraseña</h1>
+  <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required />
       </form>
       <button id="login" class="login">Entrar</button>
-      <div id="firebaseui-auth-container">contenedor para registro con google</div>
+      <button id="loginGoogle" class="login">Registro con Google</button>
+      <button id="register" class="login">Registrate</button>
+      <button id="createUser" class="login">Crear usuario</button>
     </section>
-    <section id="home">
-      <p id="logOut">Cerrar sesión</p>
+    <section id="home" class="pages">
       <img id="imageHome" src="https://media.giphy.com/media/82kVFAaz0Bd9vKAfuS/giphy.gif"
         alt="Imagen de humano abrazando a su mascota">
       <article id="select">
@@ -58,15 +64,21 @@
       <img id="find" src="https://i.ibb.co/6wdmh7M/Whats-App-Image-2019-07-25-at-12-44-04-AM.jpg" alt="Encuentra">
       <img id="adopt" src="https://i.ibb.co/b2pLvN1/Whats-App-Image-2019-07-25-at-4-12-56-PM.jpg" alt="Adopta">
     </section>
-    <section id="findPage">
-      <h1>encuentra</h1>
+    <section id="findPage" class="pages">
+        <h1>encuentra</h1>
+        <h3 id="infoUserFind"></h3>
       <textarea id="textFind" required></textarea>
       <button id="postFind">Postear</button>
     </section>
-    <section id="adoptPage">
+    <section id="adoptPage" class="pages">
       <h1>adopta</h1>
+      <h3 id="infoUserAdopt"></h3>
       <textarea name="publication" id="publication" cols="30" rows="10"></textarea>
       <button id="crearPost">publicar</button>
+    </section>
+    <section id="userPage" class="pages">
+        <article id="infoUser">
+        </article>
     </section>
   </main>
   <footer id="footerMenu">

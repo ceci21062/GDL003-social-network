@@ -10,6 +10,10 @@ body{
  header{
    background-color: white;
    position: relative;
+   height: 20%;
+ }
+ .pages{
+  display: none; 
  }
  h3 {
   font-family: 'Ubuntu', sans-serif;
@@ -28,6 +32,7 @@ body{
    margin-top: 10%;
  }
 #logOut{
+  display: none;
   float: right;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold; 
@@ -74,9 +79,12 @@ main{
 }
 section{
   visibility: none;
+  height: 70%;
+  margin-bottom: 15%;
 }
 footer{
   visibility: none;
+  position: absolute;
 }
 input{
   border-color: #f96d15;
