@@ -11,6 +11,7 @@
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
+      db=firebase.firestore( firebase.initializeApp(firebaseConfig));
 
      const handleSignUp =() => {
           let displayName = document.getElementById('name').value;
@@ -247,19 +248,23 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 };
 document.getElementById("passwordReset").addEventListener("click", passwordReset);
 
-let crearMsj= firebase.database().ref("publicaciones");
-const post = (e)=>{
-  e.preventDefault();
-let publication= document.getElementById("publication").value;
-let email= document.getElementById("email").value;
 
-let nuevoMsjRef =crearMsj.push();
-nuevoMsjRef.set({
+const post = ()=>{
+  let email= document.getElementById("email").value;
+  let publication= document.getElementById("publication").value;
+  db.collection("usuario").doc('email').set({
     email: email,
     publicacion: publication,
     timestamp: firebase.firestore.FieldValue.serverTimestamp()
+}) 
+.then(function() {
+    console.log("Document successfully written!");
+})
+.catch(function(error) {
+    console.error("Error writing document: ", error);
 });
 
-}
+} 
 document.getElementById('crearPost').addEventListener('click',post);
+
 
