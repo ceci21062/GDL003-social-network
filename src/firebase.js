@@ -129,7 +129,10 @@ window.onload = function() {
 document.getElementById("loginGoogle").addEventListener("click", ()=>{
   let provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(user){
-      alert("Google signIn");
+    document.getElementById("dataLogin").style.display = "none";
+          document.getElementById("home").style.display = "block";
+          document.getElementById("logOut").style.display = "block"; 
+    alert("Google signIn");
       console.log(user);
   }).catch(function(error){
       alert("Error");
