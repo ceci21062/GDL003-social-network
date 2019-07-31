@@ -1,4 +1,3 @@
-
 document.getElementById("pageInit").style.display="block"
 document.getElementById("headerLogo").style.display = "none";
 document.getElementById("dataLogin").style.display = "none";
@@ -12,18 +11,13 @@ document.getElementById("home").style.display = "none";
 document.getElementById("footerMenu").style.display = "none";
 document.getElementById("findPage").style.display = "none";
 document.getElementById("adoptPage").style.display = "none";
-
-
 const startApp = ()=>{
   document.getElementById("pageInit").style.display="none";
-  document.getElementById("home").style.display="none";
   document.getElementById("dataLogin").style.display = "block";
   document.getElementById("headerLogo").style.display = "block";
-  document.getElementById("home").style.display = "none";
 }
 
 document.getElementById("start").addEventListener("click", startApp);
-
 const enterRegister = () => {
   document.getElementById("nameText").style.display = "inline-block";
   document.getElementById("name").style.display = "inline-block";
@@ -44,12 +38,10 @@ document.getElementById("register").addEventListener("click", enterRegister);
   
 };
 document.getElementById("login").addEventListener("click", sendHome);*/
-
  const sendStart = () => {
   location.reload();
 };
 document.getElementById("logOut").addEventListener("click", sendStart);
-
 const sendFind = () => {
   document.getElementById("findPage").style.display = "block";
   document.getElementById("adoptPage").style.display = "none";
@@ -57,7 +49,6 @@ const sendFind = () => {
   document.getElementById("footerMenu").style.display = "block";
 }
 document.getElementById("find").addEventListener("click", sendFind);
-
 const sendAdopt = () => {
   document.getElementById("adoptPage").style.display = "block";
   document.getElementById("findPage").style.display = "none";

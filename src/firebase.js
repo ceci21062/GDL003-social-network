@@ -13,7 +13,7 @@
       firebase.initializeApp(firebaseConfig);
 
      const handleSignUp =() => {
-          let nameUser = document.getElementById('name').value;
+          let displayName = document.getElementById('name').value;
           let email = document.getElementById('email').value;
           let password = document.getElementById('password').value;
           let confirmPassword = document.getElementById('confirmPassword').value;
@@ -129,7 +129,10 @@ window.onload = function() {
 document.getElementById("loginGoogle").addEventListener("click", ()=>{
   let provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(user){
-      alert("Google signIn");
+    document.getElementById("dataLogin").style.display = "none";
+          document.getElementById("home").style.display = "block";
+          document.getElementById("logOut").style.display = "block"; 
+    alert("Google signIn");
       console.log(user);
   }).catch(function(error){
       alert("Error");
@@ -141,12 +144,17 @@ document.getElementById("loginGoogle").addEventListener("click", ()=>{
 
 //podemos ver si el usuario esta conectado o no
 firebase.auth().onAuthStateChanged(function(user) {
+  firebase.auth().currentUser;
   if (user) {
     console.log("El usuario esta conectado");
+    console.log(user.email);
+    console.log(user.displayName);
+    document.getElementById("userName").innerHTML=user.email;
   } else {
     console.log("El usuario NO esta conectado");
   }
 });
+
 
 //cerrar sesion
 const logOut = () =>{
@@ -171,15 +179,14 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 };
 document.getElementById("passwordReset").addEventListener("click", passwordReset);
 
-
-let Crearmsj= firebase.database().ref("publicaciones");
+let crearMsj= firebase.database().ref("publicaciones");
 const post = (e)=>{
   e.preventDefault();
 let publication= document.getElementById("publication").value;
 let email= document.getElementById("email").value;
 
-let nuevoMSJRef =Crearmsj.push();
-nuevoMSJRef.set({
+let nuevoMsjRef =crearMsj.push();
+nuevoMsjRef.set({
     email: email,
     publicacion: publication,
     timestamp: firebase.firestore.FieldValue.serverTimestamp()
@@ -187,7 +194,3 @@ nuevoMSJRef.set({
 
 }
 document.getElementById('crearPost').addEventListener('click',post);
-
-
-
-
