@@ -1,16 +1,11 @@
 document.getElementById("pageInit").style.display="block"
 document.getElementById("headerLogo").style.display = "none";
-document.getElementById("dataLogin").style.display = "none";
+document.getElementById("footerMenu").style.display = "none";
 document.getElementById("nameText").style.display = "none";
 document.getElementById("name").style.display = "none";
 document.getElementById("confirmText").style.display = "none";
 document.getElementById("confirmPassword").style.display = "none"; 
 document.getElementById("createUser").style.display = "none";
-document.getElementById("enterWithGoogle").style.display = "none";
-document.getElementById("home").style.display = "none";
-document.getElementById("footerMenu").style.display = "none";
-document.getElementById("findPage").style.display = "none";
-document.getElementById("adoptPage").style.display = "none";
 
 const startApp = ()=>{
   document.getElementById("pageInit").style.display="none";
@@ -38,6 +33,7 @@ document.getElementById("register").addEventListener("click", enterRegister);
   location.reload();
 };
 document.getElementById("logOut").addEventListener("click", sendStart);
+
 const sendFind = () => {
   document.getElementById("findPage").style.display = "block";
   document.getElementById("adoptPage").style.display = "none";
@@ -45,6 +41,7 @@ const sendFind = () => {
   document.getElementById("footerMenu").style.display = "block";
 }
 document.getElementById("find").addEventListener("click", sendFind);
+
 const sendAdopt = () => {
   document.getElementById("adoptPage").style.display = "block";
   document.getElementById("findPage").style.display = "none";
@@ -57,8 +54,16 @@ document.getElementById("adopt").addEventListener("click", sendAdopt);
 const goHome = () => {
   document.getElementById("adoptPage").style.display = "none";
   document.getElementById("findPage").style.display = "none";
+  document.getElementById("userPage").style.display = "none";
   document.getElementById("home").style.display = "block";
   document.getElementById("footerMenu").style.display = "none";
 }
 document.getElementById("goHome").addEventListener("click", goHome);
 
+const infoUser = () => {
+  document.getElementById("adoptPage").style.display = "none";
+  document.getElementById("findPage").style.display = "none";
+  document.getElementById("home").style.display = "none";
+  document.getElementById("userPage").style.display = "block";
+}
+document.getElementById("goUser").addEventListener("click",infoUser);
