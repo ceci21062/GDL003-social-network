@@ -1,18 +1,83 @@
 # Creando una Red Social
 
-## Preámbulo
+## Índice
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos y/u odiamos, y muchos no podemos vivir sin ellas.
+- [Introducción](#introduccion)
+- [Definición del producto](#definición-del-producto)
+- [Historias de Usuario](#historias-de-usuario)
+- [Prototipos](#prototipos)
+- [Documentación](#documentación)
+- [Extras](#extras)
 
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
-
+---
 ## Introducción
+Este proyecto fue realizado durante el Bootcamp de Laboratoria, sede Guadalajara Generación 003
+## Definición del producto
+
+## Historias de Usuario
+#### Historia de usuario 1
+Yo como usuario quiero una red social donde pueda registrarme y verificar mi email.
+
+**DoD**
+- UI básica
+- Página con el formato para poder registrarse como usuario
+-Al completar el registro, se envia un email para verificar la cuenta del usuario
+-Se almacena en firebase los datos obtenidos del usuario
+
+#### Historia de usuario 2
+Yo como usuario quiero una red social donde pueda ingresar con los datos que usé para registrarme, y que me avise si estoy cometiendo errores al iniciar sesión(como escribir mal el email o contraseña).
+
+**DoD**
+- Página con formato para poder iniciar sesión
+- Botón de "Entrar" que al dar click permite ingresar a la página de Home
+- Si se escribe una contraseña o email incorrecto, se imprime en la pantalla un mensaje que informa al usuario sobre que error cometió
+
+#### Historia de usuario 3
+Yo como usuario quiero una red social donde al estar en la página de Home me permita cerrar sesión.
+
+**DoD**
+- Botón de "Cerrar sesión" que permite al usuario salir de la red social y volver a la página de inicio
+
+#### Historia de usuario 4
+Yo como usuario quiero una red social donde pueda registrarme e ingresar con mis datos de Google.
+
+**DoD**
+- Botón en la página de Iniciar sesión donde pueda registrarme/ingresar a la red social con mis datos de Google
+
+#### Historia de usuario 5
+Yo como usuario quiero una red social donde pueda publicar un post y que este se vea en la interfaz
+
+**DoD**
+- Input donde se puede ingresar un mensaje
+- Boton para enviar el mensaje
+- Se imprime el mensaje en la página donde se escribió
+
+#### Historia de usuario 6 
+Yo como usuario quiero una red social donde pueda poner likes en las publicaciones
+
+**DoD**
+- Boton en todas las publicaciones realizadas donde al hacer click se agregué un like
+- Conteo de likes en la publicación
+
+#### Historia de usuario 7
+Yo como usuario quiero una red social donde pueda editar o eliminar mis posts
+
+**DoD**
+- Boton que me permite editar mis posts(convierte el texto en un input)
+- El post se visualiza ya editado al dar click en un botón de "Guardar"
+- Boton que me permite eliminar mis posts, con un mensaje de alerta para confirmar antes de eliminarlo
+
+#### Historia de usuario 8
+Yo como usuario quiero una red social donde pueda separar y filtrar mis publicaciones en Públicas o Privadas
+
+**DoD**
+-Al momento de escribir un post, te da la opción(con un selector)de publicarlo de manera pública o privada
+
+## Prototipos
+
+## Documentación
+
+## Extras
 
 Una emprendedora nos ha encargado crear una red social. No nos da mucho detalle
 sobre qué tipo de red social quiere, sólo nos dice que creemos la mejor que
