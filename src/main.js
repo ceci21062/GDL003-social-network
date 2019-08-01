@@ -67,3 +67,5 @@ const infoUser = () => {
   document.getElementById("userPage").style.display = "block";
 }
 document.getElementById("goUser").addEventListener("click",infoUser);
+document.getElementById("infoUserFind").addEventListener("click", infoUser);
+document.getElementById("infoUserAdopt").addEventListener("click", infoUser);
