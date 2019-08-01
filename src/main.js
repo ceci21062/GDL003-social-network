@@ -1,4 +1,4 @@
-document.getElementById("pageInit").style.display="block"
+document.getElementById("pageInit").style.display="block";
 document.getElementById("headerLogo").style.display = "none";
 document.getElementById("footerMenu").style.display = "none";
 document.getElementById("nameText").style.display = "none";
@@ -11,7 +11,7 @@ const startApp = ()=>{
   document.getElementById("pageInit").style.display="none";
   document.getElementById("dataLogin").style.display = "block";
   document.getElementById("headerLogo").style.display = "block";
-}
+};
 
 document.getElementById("start").addEventListener("click", startApp);
 
@@ -39,7 +39,7 @@ const sendFind = () => {
   document.getElementById("adoptPage").style.display = "none";
   document.getElementById("home").style.display = "none";
   document.getElementById("footerMenu").style.display = "block";
-}
+};
 document.getElementById("find").addEventListener("click", sendFind);
 
 const sendAdopt = () => {
@@ -47,7 +47,7 @@ const sendAdopt = () => {
   document.getElementById("findPage").style.display = "none";
   document.getElementById("home").style.display = "none";
   document.getElementById("footerMenu").style.display = "block";
-}
+};
 
 document.getElementById("adopt").addEventListener("click", sendAdopt);
 
@@ -57,7 +57,7 @@ const goHome = () => {
   document.getElementById("userPage").style.display = "none";
   document.getElementById("home").style.display = "block";
   document.getElementById("footerMenu").style.display = "none";
-}
+};
 document.getElementById("goHome").addEventListener("click", goHome);
 
 const infoUser = () => {
@@ -65,7 +65,7 @@ const infoUser = () => {
   document.getElementById("findPage").style.display = "none";
   document.getElementById("home").style.display = "none";
   document.getElementById("userPage").style.display = "block";
-}
-document.getElementById("goUser").addEventListener("click",infoUser);
-document.getElementById("infoUserFind").addEventListener("click", infoUser);
-document.getElementById("infoUserAdopt").addEventListener("click", infoUser);
+};
+  document.getElementById("goUser").addEventListener("click",infoUser);
+  document.getElementById("infoUserFind").addEventListener("click", infoUser);
+  document.getElementById("infoUserAdopt").addEventListener("click", infoUser);
