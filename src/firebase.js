@@ -11,7 +11,7 @@
       };
       // Initialize Firebase
       let app = firebase.initializeApp(firebaseConfig);
-          db=firebase.firestore(app);
+      let db=firebase.firestore(app);
 
      const handleSignUp =() => {
           let displayName = document.getElementById('name').value;
@@ -29,7 +29,7 @@
             return;
           }
           if (password !== confirmPassword){
-            alert('Por favor verifica tu contraseña este correcta')
+            alert('Por favor verifica tu contraseña este correcta');
           }
           // Sign in with email and pass.
           // [START createwithemail]
