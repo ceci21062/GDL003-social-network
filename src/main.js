@@ -56,8 +56,10 @@ const goHome = () => {
   document.getElementById("findPage").style.display = "none";
   document.getElementById("userPage").style.display = "none";
   document.getElementById("home").style.display = "block";
-  document.getElementById("footerMenu").style.display = "none";
-};
+
+  document.getElementById("footerMenu").style.display = "block";
+}
+
 document.getElementById("goHome").addEventListener("click", goHome);
 
 const infoUser = () => {
