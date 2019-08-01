@@ -204,10 +204,9 @@ footer{
   font-family: 'Ubuntu', sans-serif;
   color: #307e7e;
   margin-top: 10%;
-  margin-left: -30%;
-  margin-right: -30%;
   font-size: 60%;
 }
 .styleInfoSelect{
-  text-align: left;
+  image-orientation: left;
+  border-image: 50%;
 }

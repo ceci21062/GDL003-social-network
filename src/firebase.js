@@ -80,6 +80,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     `<div class = "styleInfoSelect">
     <img src =${user.photoURL} alt = "imagen de usuario" width="15%" height="15%">
     </div>`
+    document.getElementById("login").textContent = 'Sesion abierta';
     console.log("El usuario esta conectado");
   } else {
     console.log("El usuario NO esta conectado");
