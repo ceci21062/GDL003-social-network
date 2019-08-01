@@ -232,8 +232,8 @@ document.getElementById("passwordReset").addEventListener("click", passwordReset
 const post = ()=>{
   let email= document.getElementById("email").value;
   let publication= document.getElementById("publication").value;
- 
-  db.collection("usuario").doc(email).set({
+
+  db.collection("post").add({
     email: email,
     publicacion: publication,
     timestamp: firebase.firestore.FieldValue.serverTimestamp()
