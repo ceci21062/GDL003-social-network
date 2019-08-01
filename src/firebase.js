@@ -11,7 +11,7 @@
       };
       // Initialize Firebase
       let app = firebase.initializeApp(firebaseConfig);
-          db=firebase.firestore(app);
+      let db=firebase.firestore(app);
 
      const handleSignUp =() => {
           let displayName = document.getElementById('name').value;
@@ -45,10 +45,9 @@
      };
      
 
-     const initApp = ()=> {
+const initApp = ()=> {
         // Listening for auth state changes.
         // [START authstatelistener]
-  
 const user = firebase.auth().currentUser;
 
 if (user != null) {
@@ -229,23 +228,25 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 document.getElementById("passwordReset").addEventListener("click", passwordReset);
 
 
-const post = ()=>{
-  let email= document.getElementById("email").value;
+const post = (function(user) {
+  const id = firebase.auth().currentUser;
+  const email= id.email;
   let publication= document.getElementById("publication").value;
+
 
   db.collection("post").add({
     email: email,
     publicacion: publication,
     timestamp: firebase.firestore.FieldValue.serverTimestamp()
 }) 
-.then(function() {
+.then(function(user) {
     console.log("Document successfully written!");
 })
 .catch(function(error) {
     console.error("Error writing document: ", error);
 });
 
-} 
+});
 document.getElementById('crearPost').addEventListener('click',post);
 
 
