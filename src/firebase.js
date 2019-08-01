@@ -29,7 +29,7 @@
             return;
           }
           if (password !== confirmPassword){
-            alert('Por favor verifica tu contraseña este correcta')
+            alert('Por favor verifica tu contraseña este correcta');
           }
           // Sign in with email and pass.
           // [START createwithemail]
