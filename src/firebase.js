@@ -43,6 +43,7 @@
           });
             
      };
+     document.getElementById("createUser").addEventListener("click", handleSignUp);
      
 
 const initApp = ()=> {
