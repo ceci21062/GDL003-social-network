@@ -207,6 +207,13 @@ footer{
   font-size: 60%;
 }
 .styleInfoSelect{
-  image-orientation: left;
-  border-image: 50%;
+  text-align: left;
+}
+
+#boxPublication{
+  background-color: white;
+  border: #f96d15;
+  color: #307e7e;
+  height: 50%;
+  width: 50%;
 }
