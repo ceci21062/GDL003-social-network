@@ -66,17 +66,25 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     document.getElementById("infoUser").innerHTML+=
     `<div class = "styleInfo">
+    <br><br>
     <h1>Perfil</h1>
+    <br>
     <img src =${user.photoURL} alt = "imagen de usuario"  width="20%" height="20%" >
+    <br>
     <h2>Nombre de Usuario:<br>${user.displayName}</h2>
+    <br>
     <h2>Correo Electronico:<br>${user.email}</h2>
     </div>`
     document.getElementById("infoUserAdopt").innerHTML+=
     `<div class = "styleInfoSelect">
+    <h1>Adopta:</h1>
+    <br>
     <img src =${user.photoURL} alt = "imagen de usuario" width="15%" height="15%">
     </div>`
     document.getElementById("infoUserFind").innerHTML+=
     `<div class = "styleInfoSelect">
+    <h1>Encuentra:</h1>
+    <br>
     <img src =${user.photoURL} alt = "imagen de usuario" width="15%" height="15%">
     </div>`
     document.getElementById("login").textContent = 'Sesion abierta';
@@ -229,21 +237,20 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 document.getElementById("passwordReset").addEventListener("click", passwordReset);
 
 
-const post = (function(user) {
+  const post = (function(user) {
   const id = firebase.auth().currentUser;
   const email= id.email;
   let publication= document.getElementById("publication").value;
-  let timestamp= firebase.firestore.FieldValue.serverTimestamp()
+  let timestamp= firebase.firestore.FieldValue.serverTimestamp();
 
-
+  if (publication == ""){
+    alert("Error, primero escribe algo");
+}else{
   db.collection("post").add({
     email: email,
     publicacion: publication,
     timestamp: timestamp,
-}) 
-
-
-.then(function(docRef) {
+}).then(function(docRef) {
  document.getElementById("startPublication").innerHTML += 
   `
   <div id="boxPublication">
@@ -252,19 +259,17 @@ const post = (function(user) {
     <h6>${timestamp}</h6>
   </div>
   `
-
-  
     console.log("Document successfully written with ID:", docRef.id);
     console.log("user:", email);
     console.log("publicacion", publication);
     console.log("date:",timestamp);
    
-})
-.catch(function(error) {
+}).catch(function(error) {
     console.error("Error writing document: ", error);
 });
-
+};
 });
+
 document.getElementById('crearPost').addEventListener('click',post);
 
 
