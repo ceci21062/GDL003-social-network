@@ -9,7 +9,7 @@ body{
 }
  header{
    background-color: white;
-   position: relative;
+   position: static;
    height: 20%;
  }
  .pages{
@@ -206,8 +206,15 @@ footer{
   margin-top: 10%;
   font-size: 60%;
 }
-.styleInfoSelect{
+.styleInfoSelect>img{
   text-align: left;
+  border-radius: 50%;
+}
+.styleInfoSelect>h1{
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: white;
+  color:#307e7e;
 }
 
 #boxPublication{
@@ -217,3 +224,4 @@ footer{
   height: 50%;
   width: 50%;
 }
+
