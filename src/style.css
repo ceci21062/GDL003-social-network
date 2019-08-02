@@ -211,3 +211,11 @@ footer{
 .styleInfoSelect{
   text-align: left;
 }
+
+#boxPublication{
+  background-color: white;
+  border: #f96d15;
+  color: #307e7e;
+  height: 50%;
+  width: 50%;
+  
