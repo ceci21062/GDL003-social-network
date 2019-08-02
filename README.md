@@ -12,6 +12,11 @@
 ---
 ## Introducción
 Este proyecto fue realizado durante el Bootcamp de Laboratoria, sede Guadalajara Generación 003
+Nuestro equipo de trabajo esta conformado por:
+- Karen Cecilia Garcia Sandoval
+- Gloria Ramirez Robles
+- Erika Liliana Sanchez Murguia
+
 ## Definición del producto
 
 ## Historias de Usuario
@@ -21,8 +26,8 @@ Yo como usuario quiero una red social donde pueda registrarme y verificar mi ema
 **DoD**
 - UI básica
 - Página con el formato para poder registrarse como usuario
--Al completar el registro, se envia un email para verificar la cuenta del usuario
--Se almacena en firebase los datos obtenidos del usuario
+- Al completar el registro, se envia un email para verificar la cuenta del usuario
+- Se almacena en firebase los datos obtenidos del usuario
 
 #### Historia de usuario 2
 Yo como usuario quiero una red social donde pueda ingresar con los datos que usé para registrarme, y que me avise si estoy cometiendo errores al iniciar sesión(como escribir mal el email o contraseña).
@@ -71,11 +76,42 @@ Yo como usuario quiero una red social donde pueda editar o eliminar mis posts
 Yo como usuario quiero una red social donde pueda separar y filtrar mis publicaciones en Públicas o Privadas
 
 **DoD**
--Al momento de escribir un post, te da la opción(con un selector)de publicarlo de manera pública o privada
+- Al momento de escribir un post, te da la opción(con un selector)de publicarlo de manera pública o privada
 
 ## Prototipos
 
+Para este proyecto se creó un prototipo de baja fidelidad orientado a una vista en dispositivo movil.
+
+https://marvelapp.com/4c9hhf4/screen/59333765
+
+Durante esa primer idea del proyecto no considerabamos la página de bienvenida antes de poder iniciar sesión, y buscabamos que el usuario pudiera crear mensajes con varios filtros predeterminados para facilitar la busqueda de mascotas con las caracteristicas que necesitan
+
 ## Documentación
+
+Creamos un formulario para poder conocer si nuestra idea era viable y los datos qué le interesaría a
+nuestro usuario poder visualizar en una red social orientada a la adopción y busqueda de mascotas extraviadas. Este formulario fue compartido en diversos grupos de facebook de la ZMG donde el objetivo es dar en adopción o ayudar a encontrar mascotas extraviadas
+
+![Ejemplo de una de las publicaciones realizadas](https://i.ibb.co/B2LNV9f/fyp8.jpg)
+
+https://forms.gle/tM9QBrxu1A1styxG6
+
+Los resultados de nuestro formulario fueron 22, pero obtuvimos información valiosa de ellos ya que quienes contestaron son personas interesadas en un proyecto como el nuestro
+
+![¿Alguna vez has adoptado o dado en adopción una mascota?](https://i.ibb.co/V9CzbnB/fyp1.jpg)
+
+![¿Tuviste alguna dificiltad durante el proceso](https://i.ibb.co/DWjZKp3/FYP2.jpg)
+
+![¿Crees necesaria una red social enfocada en encontrar a tu mascota?](https://i.ibb.co/0JxL5fV/fyp3.jpg)
+
+![¿Qué esperarias encontrar en esta red social? 1/2](https://i.ibb.co/L1g3dtG/fyp4.jpg)
+
+![¿Qué esperarias encontrar en esta red social? 2/2](https://i.ibb.co/hghbjxY/fyp5.jpg)
+
+![¿Qué datos crees necesarios saber para adoptar una mascota?](https://i.ibb.co/nkkTNhs/fyp6.jpg)
+
+![¿Te interesaría participar en un test de usabilidad?](https://i.ibb.co/2KGK4f6/fyp7.jpg)
+
+Esta última pregunta es fundamental para poder realizar los tests de usabilidad y las entrevistas con usuarios interesados en aportar a nuestro proyecto. En las siguientes preguntas, en caso de si querer participar en nuestro test, los encuestados nos proporcionaron sus datos de contacto para poder buscarlos en cuanto nuestro proyecto este en una etapa donde podamos realizar estos tests.
 
 ## Extras
 
