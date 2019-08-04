@@ -239,38 +239,56 @@ document.getElementById("passwordReset").addEventListener("click", passwordReset
 
 
   const post = (function(user) {
-  const id = firebase.auth().currentUser;
-  const email= id.email;
+  let id = firebase.auth().currentUser;
+  let email= id.email;
   let publication= document.getElementById("publication").value;
-  let timestamp= firebase.firestore.FieldValue.serverTimestamp();
+  let timestamp= firebase.firestore.Timestamp.fromDate(new Date());
 
+  
   if (publication == ""){
     alert("Error, primero escribe algo");
 }else{
   db.collection("post").add({
-    email: email,
-    publicacion: publication,
-    timestamp: timestamp,
-}).then(function(docRef) {
- document.getElementById("startPublication").innerHTML += 
+    email,
+    publication,
+    timestamp,
+}).then((doc)=> {
+ 
+ /* document.getElementById("startPublication").innerHTML += 
+
   `
   <div id="boxPublication">
     <h4>${email}</h4>
     <p>${publication}</p>
     <h6>${timestamp}</h6>
   </div>
-  `
-    console.log("Document successfully written with ID:", docRef.id);
-    console.log("user:", email);
-    console.log("publicacion", publication);
-    console.log("date:",timestamp);
+  `*/
+  console.log("Document successfully written with ID:", doc.id);
+  console.log("user:", email);
+  console.log("publication", publication);
+  console.log("date:",timestamp);
+db.collection("post").get().then((querySnapshot) => {
+  querySnapshot.forEach((doc) => {
+ 
+    document.getElementById("startPublication").innerHTML += 
+
+    `
+    <div id="boxPublication">
+      <h4>${doc.data().email}</h4>
+      <p> ${doc.data().publication}</p>
+      <h6> ${doc.data().timestamp}</h6>
+      <br>
+    </div>
+    `
+ 
    
+  }); 
 }).catch(function(error) {
     console.error("Error writing document: ", error);
 });
-};
 });
-
+};
+  });
 document.getElementById('crearPost').addEventListener('click',post);
 
 
