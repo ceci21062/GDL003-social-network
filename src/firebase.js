@@ -238,6 +238,26 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 document.getElementById("passwordReset").addEventListener("click", passwordReset);
 
 
+db.collection("post").get().then((querySnapshot) => {
+  querySnapshot.forEach((doc) => {
+    console.log("los mensajes ya estan impresos")
+    document.getElementById("startPublication").innerHTML += 
+
+    `
+    <div id="boxPublication">
+      <h4>${doc.data().email}</h4>
+      <p> ${doc.data().publication}</p>
+      <h6> ${doc.data().timestamp}</h6>
+      <br>
+    </div>
+    `
+ 
+   
+  }); 
+}).catch(function(error) {
+    console.error("Error writing document: ", error);
+});
+
   const post = (function(user) {
   let id = firebase.auth().currentUser;
   let email= id.email;
@@ -267,28 +287,11 @@ document.getElementById("passwordReset").addEventListener("click", passwordReset
   console.log("user:", email);
   console.log("publication", publication);
   console.log("date:",timestamp);
-db.collection("post").get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
- 
-    document.getElementById("startPublication").innerHTML += 
 
-    `
-    <div id="boxPublication">
-      <h4>${doc.data().email}</h4>
-      <p> ${doc.data().publication}</p>
-      <h6> ${doc.data().timestamp}</h6>
-      <br>
-    </div>
-    `
- 
-   
-  }); 
-}).catch(function(error) {
-    console.error("Error writing document: ", error);
-});
 });
 };
   });
+
 document.getElementById('crearPost').addEventListener('click',post);
 
 

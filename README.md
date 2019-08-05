@@ -26,7 +26,7 @@ Yo como usuario quiero una red social donde pueda registrarme y verificar mi ema
 **DoD**
 - UI básica
 - Página con el formato para poder registrarse como usuario
-- Al completar el registro, se envia un email para verificar la cuenta del usuario
+- Al completar el registro, se envía un email para verificar la cuenta del usuario
 - Se almacena en firebase los datos obtenidos del usuario
 
 #### Historia de usuario 2
@@ -54,23 +54,23 @@ Yo como usuario quiero una red social donde pueda publicar un post y que este se
 
 **DoD**
 - Input donde se puede ingresar un mensaje
-- Boton para enviar el mensaje
+- Botón para enviar el mensaje
 - Se imprime el mensaje en la página donde se escribió
 
 #### Historia de usuario 6 
 Yo como usuario quiero una red social donde pueda poner likes en las publicaciones
 
 **DoD**
-- Boton en todas las publicaciones realizadas donde al hacer click se agregué un like
+- Botón en todas las publicaciones realizadas donde al hacer click se agregué un like
 - Conteo de likes en la publicación
 
 #### Historia de usuario 7
 Yo como usuario quiero una red social donde pueda editar o eliminar mis posts
 
 **DoD**
-- Boton que me permite editar mis posts(convierte el texto en un input)
+- Botón que me permite editar mis posts(convierte el texto en un input)
 - El post se visualiza ya editado al dar click en un botón de "Guardar"
-- Boton que me permite eliminar mis posts, con un mensaje de alerta para confirmar antes de eliminarlo
+- Botón que me permite eliminar mis posts, con un mensaje de alerta para confirmar antes de eliminarlo
 
 #### Historia de usuario 8
 Yo como usuario quiero una red social donde pueda separar y filtrar mis publicaciones en Públicas o Privadas
@@ -84,12 +84,12 @@ Para este proyecto se creó un prototipo de baja fidelidad orientado a una vista
 
 https://marvelapp.com/4c9hhf4/screen/59333765
 
-Durante esa primer idea del proyecto no considerabamos la página de bienvenida antes de poder iniciar sesión, y buscabamos que el usuario pudiera crear mensajes con varios filtros predeterminados para facilitar la busqueda de mascotas con las caracteristicas que necesitan
+Durante esa primer idea del proyecto no considerábamos la página de bienvenida antes de poder iniciar sesión, y buscábamos que el usuario pudiera crear mensajes con varios filtros predeterminados para facilitar la búsqueda de mascotas con las características que necesitan
 
 ## Documentación
 
 Creamos un formulario para poder conocer si nuestra idea era viable y los datos qué le interesaría a
-nuestro usuario poder visualizar en una red social orientada a la adopción y busqueda de mascotas extraviadas. Este formulario fue compartido en diversos grupos de facebook de la ZMG donde el objetivo es dar en adopción o ayudar a encontrar mascotas extraviadas
+nuestro usuario poder visualizar en una red social orientada a la adopción y búsqueda de mascotas extraviadas. Este formulario fue compartido en diversos grupos de facebook de la ZMG donde el objetivo es dar en adopción o ayudar a encontrar mascotas extraviadas
 
 ![Ejemplo de una de las publicaciones realizadas](https://i.ibb.co/B2LNV9f/fyp8.jpg)
 
@@ -99,13 +99,13 @@ Los resultados de nuestro formulario fueron 22, pero obtuvimos información vali
 
 ![¿Alguna vez has adoptado o dado en adopción una mascota?](https://i.ibb.co/V9CzbnB/fyp1.jpg)
 
-![¿Tuviste alguna dificiltad durante el proceso](https://i.ibb.co/DWjZKp3/FYP2.jpg)
+![¿Tuviste alguna dificultad durante el proceso](https://i.ibb.co/DWjZKp3/FYP2.jpg)
 
 ![¿Crees necesaria una red social enfocada en encontrar a tu mascota?](https://i.ibb.co/0JxL5fV/fyp3.jpg)
 
-![¿Qué esperarias encontrar en esta red social? 1/2](https://i.ibb.co/L1g3dtG/fyp4.jpg)
+![¿Qué esperarías encontrar en esta red social? 1/2](https://i.ibb.co/L1g3dtG/fyp4.jpg)
 
-![¿Qué esperarias encontrar en esta red social? 2/2](https://i.ibb.co/hghbjxY/fyp5.jpg)
+![¿Qué esperarías encontrar en esta red social? 2/2](https://i.ibb.co/hghbjxY/fyp5.jpg)
 
 ![¿Qué datos crees necesarios saber para adoptar una mascota?](https://i.ibb.co/nkkTNhs/fyp6.jpg)
 
