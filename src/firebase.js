@@ -247,7 +247,10 @@ db.collection("post").get().then((querySnapshot) => {
     <div id="boxPublication">
       <h4>${doc.data().email}</h4>
       <p> ${doc.data().publication}</p>
-      <h6> ${doc.data().timestamp}</h6>
+      <h6> ${doc.data().date}</h6>
+      <h6> ${doc.data().hour}</h6>
+      <button id="edit">Editar<button>
+      <button id="remove">Eliminar<button>
       <br>
     </div>
     `
@@ -262,7 +265,8 @@ db.collection("post").get().then((querySnapshot) => {
   let id = firebase.auth().currentUser;
   let email= id.email;
   let publication= document.getElementById("publication").value;
-  let timestamp= firebase.firestore.Timestamp.fromDate(new Date());
+  let date= firebase.firestore;
+  let hour = firebase.firestore;
 
   
   if (publication == ""){
@@ -271,22 +275,15 @@ db.collection("post").get().then((querySnapshot) => {
   db.collection("post").add({
     email,
     publication,
-    timestamp,
+    date:new Date().toLocaleDateString(),
+    hour:new Date().toLocaleTimeString()
 }).then((doc)=> {
  
- /* document.getElementById("startPublication").innerHTML += 
-
-  `
-  <div id="boxPublication">
-    <h4>${email}</h4>
-    <p>${publication}</p>
-    <h6>${timestamp}</h6>
-  </div>
-  `*/
   console.log("Document successfully written with ID:", doc.id);
   console.log("user:", email);
   console.log("publication", publication);
-  console.log("date:",timestamp);
+  console.log("date:",date);
+  console.log("hour:",hour);
 
 });
 };
