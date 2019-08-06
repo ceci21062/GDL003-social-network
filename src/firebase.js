@@ -237,10 +237,59 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 };
 document.getElementById("passwordReset").addEventListener("click", passwordReset);
 
+const printPosts = () =>{
+  db.collection("post").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      console.log("los mensajes ya estan impresos")
+      document.getElementById("startPublication").innerHTML += 
+  
+      `
+      <div id="boxPublication">
+        <h4>${doc.data().email}</h4>
+        <p> ${doc.data().publication}</p>
+        <h6> ${doc.data().date}</h6>
+        <h6> ${doc.data().hour}</h6>
+        <button id="edit">Editar<button>
+        <button id="remove">Eliminar<button>
+        <br>
+      </div>
+      `
+   
+     
+    }); 
+  }).catch(function(error) {
+      console.error("Error writing document: ", error);
+  });
+}
+document.getElementById("adopt").addEventListener("click", printPosts);
 
+  const post = (function(user) {
+  let id = firebase.auth().currentUser;
+  let email= id.email;
+  let publication= document.getElementById("publication").value;
+  let date= firebase.firestore;
+  let hour = firebase.firestore;
+  
+
+  if (publication == ""){
+    alert("Error, primero escribe algo");
+}else{
+  db.collection("post").add({
+    email,
+    publication,
+    date:new Date().toLocaleDateString(),
+    hour:new Date().toLocaleTimeString()
+}).then((doc)=> {
+ 
+  console.log("Document successfully written with ID:", doc.id);
+  console.log("user:", email);
+  console.log("publication", publication);
+  console.log("date:",date);
+ console.log("hour:",hour);
 db.collection("post").get().then((querySnapshot) => {
+  document.getElementById("startPublication").innerHTML="";
   querySnapshot.forEach((doc) => {
-    console.log("los mensajes ya estan impresos")
+ 
     document.getElementById("startPublication").innerHTML += 
 
     `
@@ -260,35 +309,24 @@ db.collection("post").get().then((querySnapshot) => {
 }).catch(function(error) {
     console.error("Error writing document: ", error);
 });
-
-  const post = (function(user) {
-  let id = firebase.auth().currentUser;
-  let email= id.email;
-  let publication= document.getElementById("publication").value;
-  let date= firebase.firestore;
-  let hour = firebase.firestore;
-
-  
-  if (publication == ""){
-    alert("Error, primero escribe algo");
-}else{
-  db.collection("post").add({
-    email,
-    publication,
-    date:new Date().toLocaleDateString(),
-    hour:new Date().toLocaleTimeString()
-}).then((doc)=> {
- 
-  console.log("Document successfully written with ID:", doc.id);
-  console.log("user:", email);
-  console.log("publication", publication);
-  console.log("date:",date);
-  console.log("hour:",hour);
-
 });
 };
-  });
-
+document.getElementById("publication").value="";
+});
 document.getElementById('crearPost').addEventListener('click',post);
 
-
+/*
+//borrar post
+const deletePost = () =>{
+db.collection("post")
+  .doc(id)
+  .delete()
+  .then(function() {
+    console.log('Document successfully deleted!');
+  })
+  .catch(function(error) {
+    console.error('Error removing document: ', error);
+   
+  });
+}
+document.getElementById("remove").addEventListener("click", deletePost); */
