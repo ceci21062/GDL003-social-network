@@ -309,27 +309,7 @@ document.getElementById("adopt").addEventListener("click", printPosts);
     console.error("Error writing document: ", error);
 });  
 }); */
-db.collection("post").onSnapshot((querySnapshot) => {
-  document.getElementById("startPublication").innerHTML="";
-  querySnapshot.forEach((doc) => {
- 
-    document.getElementById("startPublication").innerHTML += 
 
-    `
-    <div id="boxPublication">
-      <h4>${doc.data().email}</h4>
-      <p> ${doc.data().publication}</p>
-      <h6> ${doc.data().date}</h6>
-      <h6> ${doc.data().hour}</h6>
-      <button id="edit">Editar</button>
-      <button id="remove" onclick="deletePost('${doc.id}')">Eliminar</button>
-      <br>
-    </div>
-    `
- 
-   
-  }); 
-});
 });
 };
 document.getElementById("publication").value="";
