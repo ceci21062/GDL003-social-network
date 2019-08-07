@@ -48,6 +48,7 @@ const sendAdopt = () => {
   document.getElementById("findPage").style.display = "none";
   document.getElementById("home").style.display = "none";
   document.getElementById("footerMenu").style.display = "block";
+  document.getElementById("publication").value="";
 };
 
 document.getElementById("adopt").addEventListener("click", sendAdopt);
@@ -57,8 +58,8 @@ const goHome = () => {
   document.getElementById("findPage").style.display = "none";
   document.getElementById("userPage").style.display = "none";
   document.getElementById("home").style.display = "block";
-
   document.getElementById("footerMenu").style.display = "block";
+  document.getElementById("startPublication").innerHTML="";
 }
 
 document.getElementById("goHome").addEventListener("click", goHome);
@@ -68,6 +69,7 @@ const infoUser = () => {
   document.getElementById("findPage").style.display = "none";
   document.getElementById("home").style.display = "none";
   document.getElementById("userPage").style.display = "block";
+  document.getElementById("startPublication").innerHTML="";
 };
   document.getElementById("goUser").addEventListener("click",infoUser);
   document.getElementById("infoUserFind").addEventListener("click", infoUser);
