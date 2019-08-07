@@ -238,7 +238,8 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 document.getElementById("passwordReset").addEventListener("click", passwordReset);
 
 const printPosts = () =>{
-  db.collection("post").get().then((querySnapshot) => {
+  db.collection("post").onSnapshot((querySnapshot) => {
+    document.getElementById("startPublication").innerHTML="";
     querySnapshot.forEach((doc) => {
       console.log("los mensajes ya estan impresos")
       document.getElementById("startPublication").innerHTML += 
@@ -249,16 +250,14 @@ const printPosts = () =>{
         <p> ${doc.data().publication}</p>
         <h6> ${doc.data().date}</h6>
         <h6> ${doc.data().hour}</h6>
-        <button id="edit">Editar<button>
-        <button id="remove">Eliminar<button>
+        <button id="edit">Editar</button>
+        <button id="remove" onclick="deletePost('${doc.id}')">Eliminar</button>
         <br>
       </div>
       `
    
-     
+
     }); 
-  }).catch(function(error) {
-      console.error("Error writing document: ", error);
   });
 }
 document.getElementById("adopt").addEventListener("click", printPosts);
@@ -286,7 +285,7 @@ document.getElementById("adopt").addEventListener("click", printPosts);
   console.log("publication", publication);
   console.log("date:",date);
  console.log("hour:",hour);
-db.collection("post").get().then((querySnapshot) => {
+/* db.collection("post").onSnapshot((querySnapshot) = >{
   document.getElementById("startPublication").innerHTML="";
   querySnapshot.forEach((doc) => {
  
@@ -308,6 +307,28 @@ db.collection("post").get().then((querySnapshot) => {
   }); 
 }).catch(function(error) {
     console.error("Error writing document: ", error);
+});  
+}); */
+db.collection("post").onSnapshot((querySnapshot) => {
+  document.getElementById("startPublication").innerHTML="";
+  querySnapshot.forEach((doc) => {
+ 
+    document.getElementById("startPublication").innerHTML += 
+
+    `
+    <div id="boxPublication">
+      <h4>${doc.data().email}</h4>
+      <p> ${doc.data().publication}</p>
+      <h6> ${doc.data().date}</h6>
+      <h6> ${doc.data().hour}</h6>
+      <button id="edit">Editar</button>
+      <button id="remove" onclick="deletePost('${doc.id}')">Eliminar</button>
+      <br>
+    </div>
+    `
+ 
+   
+  }); 
 });
 });
 };
@@ -315,18 +336,12 @@ document.getElementById("publication").value="";
 });
 document.getElementById('crearPost').addEventListener('click',post);
 
-/*
 //borrar post
-const deletePost = () =>{
-db.collection("post")
-  .doc(id)
-  .delete()
-  .then(function() {
+const deletePost = (id) => {
+db.collection("post").doc(id).delete().then(function() {
     console.log('Document successfully deleted!');
   })
   .catch(function(error) {
     console.error('Error removing document: ', error);
-   
   });
 }
-document.getElementById("remove").addEventListener("click", deletePost); */
