@@ -237,13 +237,13 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 };
 document.getElementById("passwordReset").addEventListener("click", passwordReset);
 
+//Se imprimen los post en tiempo real
 const printPosts = () =>{
   db.collection("post").onSnapshot((querySnapshot) => {
     document.getElementById("startPublication").innerHTML="";
     querySnapshot.forEach((doc) => {
       console.log("los mensajes ya estan impresos")
       document.getElementById("startPublication").innerHTML += 
-  
       `
       <div id="boxPublication">
         <h4>${doc.data().email}</h4>
@@ -254,9 +254,7 @@ const printPosts = () =>{
         <button id="remove" onclick="deletePost('${doc.id}')">Eliminar</button>
         <br>
       </div>
-      `
-   
-
+      `   
     }); 
   });
 }
@@ -285,30 +283,6 @@ document.getElementById("adopt").addEventListener("click", printPosts);
   console.log("publication", publication);
   console.log("date:",date);
  console.log("hour:",hour);
-/* db.collection("post").onSnapshot((querySnapshot) = >{
-  document.getElementById("startPublication").innerHTML="";
-  querySnapshot.forEach((doc) => {
- 
-    document.getElementById("startPublication").innerHTML += 
-
-    `
-    <div id="boxPublication">
-      <h4>${doc.data().email}</h4>
-      <p> ${doc.data().publication}</p>
-      <h6> ${doc.data().date}</h6>
-      <h6> ${doc.data().hour}</h6>
-      <button id="edit">Editar<button>
-      <button id="remove">Eliminar<button>
-      <br>
-    </div>
-    `
- 
-   
-  }); 
-}).catch(function(error) {
-    console.error("Error writing document: ", error);
-});  
-}); */
 
 });
 };
