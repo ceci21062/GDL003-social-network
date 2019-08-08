@@ -247,10 +247,10 @@ const printPosts = () =>{
       `
       <div id="boxPublication">
         <h4>${doc.data().email}</h4>
-        <p> ${doc.data().publication}</p>
+        <p id="textPublication"> ${doc.data().publication}</p>
         <h6> ${doc.data().date}</h6>
         <h6> ${doc.data().hour}</h6>
-        <button id="edit">Editar</button>
+        <button id="edit" onclick="editPost('${doc.id}','${doc.data().publication}')">Editar</button>
         <button id="remove" onclick="deletePost('${doc.id}')">Eliminar</button>
         <br>
       </div>
@@ -298,4 +298,46 @@ db.collection("post").doc(id).delete().then(function() {
   .catch(function(error) {
     console.error('Error removing document: ', error);
   });
+},
+
+//convertir post en input
+
+ editPost=(id,newPublication) => {
+
+  let btnEdit = document.getElementById("edit");
+  let oldPublication = document.getElementById("textPublication");
+  let oldText = oldPublication.textContent;
+
+  db.collection("post").onSnapshot((querySnapshot) => {
+    document.getElementById("textPublication");
+    querySnapshot.forEach((id) => {
+
+ console.log(id);
+ 
+  id = firebase.auth().currentUser;
+  newPublication = document.createElement('input');
+  newPublication.type = 'text';
+  oldPublication.appendChild(newPublication);
+  oldPublication.replaceWith(newPublication);
+  newPublication.value = oldText;
+  
+    })
+  });
+  console.log(newPublication);
+    let washingtonRef = db.collection("post").doc(id);
+
+    // Set the "capital" field of the city 'DC'
+    return washingtonRef.update({
+        oldPublication :newPublication
+  
+    }).then(function() {
+        console.log(" La publicación se ha editado exitosamente!");
+        btnEdit.textContent = 'Guardar';
+    })
+    .catch(function(error) {
+        // The document probably doesn't exist.
+        console.error("Error , no se encuentra la publicación: ", error);
+    });
+
+
 }
