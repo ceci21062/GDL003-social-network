@@ -238,6 +238,7 @@ document.getElementById("passwordReset").addEventListener("click", passwordReset
 
 //Se imprimen los post en tiempo real
 const printPosts = () =>{
+
   db.collection("post").onSnapshot((querySnapshot) => {
     document.getElementById("startPublication").innerHTML="";
     querySnapshot.forEach((doc) => {
@@ -256,13 +257,15 @@ const printPosts = () =>{
         <button id="remove" onclick="deletePost('${doc.id}')">
         <i class="icono fas fa-trash-alt"></i>
         </button>
-        <button id="like">
-        <i class=" icono fas fa-paw"></i>
+
+        <button id="like" onclick="totaLike('${doc.id}','${doc.data().like}')">${doc.data().like}
+        <i class=" icono fas fa-paw"></i> 
         </button>
 
         <br>
+         
       </div>
-      `   
+      ` 
     }); 
   });
 }
@@ -275,7 +278,7 @@ document.getElementById("adopt").addEventListener("click", printPosts);
   let publication= document.getElementById("publication").value;
   let date= firebase.firestore;
   let hour = firebase.firestore;
-  
+  let like = 0;
 
   if (publication == ""){
     alert("Error, primero escribe algo");
@@ -284,7 +287,8 @@ document.getElementById("adopt").addEventListener("click", printPosts);
     email,
     publication,
     date:new Date().toLocaleDateString(),
-    hour:new Date().toLocaleTimeString()
+    hour:new Date().toLocaleTimeString(),
+    like,
 }).then((doc)=> {
  
   console.log("Document successfully written with ID:", doc.id);
@@ -292,6 +296,8 @@ document.getElementById("adopt").addEventListener("click", printPosts);
   console.log("publication", publication);
   console.log("date:",date);
  console.log("hour:",hour);
+ console.log("like:", like);
+ 
 
 });
 };
@@ -303,6 +309,7 @@ document.getElementById('crearPost').addEventListener('click',post);
 //borrar post
 const deletePost = (id) => {
   if (confirm('¿Estas seguro de eliminar este post?')){
+    
       db.collection("post").doc(id).delete().then(function() {
        console.log('Document successfully deleted!');
     })
@@ -314,7 +321,8 @@ const deletePost = (id) => {
   }
   }
 
-//Editar mensajes
+/*
+//Editar mensajes Gloria
 const editPost = (id,publication) => {
   document.getElementById("textPublication").value=publication;
   document.getElementById("textPublication").disabled=false;
@@ -337,7 +345,7 @@ const editPost = (id,publication) => {
         .catch(function(error) {
           console.error('Error removing document: ', error);
         });
-        } */
+        } *//*
         btn.innerHTML=
         `
         <i class="icono fas fa-edit"></i>
@@ -348,11 +356,12 @@ const editPost = (id,publication) => {
         console.error("Error , no se encuentra la publicación: ", error);
       });
   }
-}    
+}  
+*/
 
 
 /*
-//convertir post en input
+//convertir post en input Erika
 
  editPost=(id,newPublication) => {
 
@@ -375,12 +384,14 @@ const editPost = (id,publication) => {
   
     })
   });
+  if (id == id){
+
   console.log(newPublication);
     let washingtonRef = db.collection("post").doc(id);
 
     // Set the "capital" field of the city 'DC'
     return washingtonRef.update({
-        oldPublication :newPublication
+        newPublication
   
     }).then(function() {
         console.log(" La publicación se ha editado exitosamente!");
@@ -390,5 +401,15 @@ const editPost = (id,publication) => {
         // The document probably doesn't exist.
         console.error("Error , no se encuentra la publicación: ", error);
     });
+  }
 }
 */
+
+const totaLike = (id, like)=>{ 
+  let aumenta = 2;
+  let reflike = db.collection("post").doc(id);
+    
+      console.log(id);
+      console.log(like);
+    }
+
