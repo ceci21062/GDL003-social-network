@@ -15,7 +15,6 @@
 
      const handleSignUp =() => {
           let displayName = document.getElementById('name').value;
-
           let email = document.getElementById('email').value;
           let password = document.getElementById('password').value;
           let confirmPassword = document.getElementById('confirmPassword').value;
@@ -300,11 +299,15 @@ document.getElementById('crearPost').addEventListener('click',post);
 
 //borrar post
 const deletePost = (id) => {
-db.collection("post").doc(id).delete().then(function() {
-    console.log('Document successfully deleted!');
-  })
-  .catch(function(error) {
-    console.error('Error removing document: ', error);
-  });
-}
+  if (confirm('¿Estas seguro de eliminar este post?')){
+    db.collection("post").doc(id).delete().then(function() {
+      console.log('Document successfully deleted!');
+    })
+    .catch(function(error) {
+      console.error('Error removing document: ', error);
+    });
+  }else{
+    console.log("El mensaje no se eliminó");
+  }
+  }
 
