@@ -396,11 +396,11 @@ const editPost = (id,publication) => {
 }
 */
 
-const totaLike = (id, like)=>{ 
-  let aumenta = 2;
-  let reflike = db.collection("post").doc(id);
-    
-      console.log(id);
-      console.log(like);
+const totaLike = (id, like)=>{
+     
+        let reflike = db.collection("post").doc(id);
+        console.log(id);
+        console.log(like);
+        reflike.update("like",firebase.firestore.FieldValue.increment(1));
+  
     }
-
