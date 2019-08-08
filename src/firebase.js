@@ -337,12 +337,14 @@ const deletePost = (id) => {
   
     })
   });
+  if (id == id){
+
   console.log(newPublication);
     let washingtonRef = db.collection("post").doc(id);
 
     // Set the "capital" field of the city 'DC'
     return washingtonRef.update({
-        oldPublication :newPublication
+        newPublication
   
     }).then(function() {
         console.log(" La publicación se ha editado exitosamente!");
@@ -352,6 +354,7 @@ const deletePost = (id) => {
         // The document probably doesn't exist.
         console.error("Error , no se encuentra la publicación: ", error);
     });
+  }
 }
 
  
