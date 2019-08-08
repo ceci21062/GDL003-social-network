@@ -249,8 +249,15 @@ const printPosts = () =>{
         <p> ${doc.data().publication}</p>
         <h6> ${doc.data().date}</h6>
         <h6> ${doc.data().hour}</h6>
-        <button id="edit">Editar</button>
-        <button id="remove" onclick="deletePost('${doc.id}')">Eliminar</button>
+        <button id="edit">
+        <i class="icono fas fa-edit"></i>
+        </button>
+        <button id="remove" onclick="deletePost('${doc.id}')">
+        <i class="icono fas fa-trash-alt"></i>
+        </button>
+        <button id="like">
+        <i class=" icono fas fa-paw"></i>
+        </button>
         <br>
       </div>
       `   
@@ -287,6 +294,7 @@ document.getElementById("adopt").addEventListener("click", printPosts);
 };
 document.getElementById("publication").value="";
 });
+
 document.getElementById('crearPost').addEventListener('click',post);
 
 //borrar post
@@ -302,3 +310,4 @@ const deletePost = (id) => {
     console.log("El mensaje no se eliminó");
   }
   }
+
