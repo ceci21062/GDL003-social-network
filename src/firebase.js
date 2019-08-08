@@ -268,6 +268,7 @@ const printPosts = () =>{
 }
 document.getElementById("adopt").addEventListener("click", printPosts);
 
+//Se publican posts con la caja de texto
   const post = (function(user) {
   let id = firebase.auth().currentUser;
   let email= id.email;
@@ -313,7 +314,47 @@ const deletePost = (id) => {
   }
   }
 
+//Editar mensajes
 
+
+function editPost(id,publication){
+
+  document.getElementById("publication").value= publication;
+  let btn=document.getElementById("crearPost");
+  btn.innerHTML="Editar";
+
+  btn.onclick = () =>{
+    let edited = db.collection("post").doc(id);
+    // Set the "capital" field of the city 'DC'
+  let publication= document.getElementById("publication").value;
+      return edited.update({
+        publication,
+    
+      }).then(function() {
+        console.log(" La publicación se ha editado exitosamente!");
+        /*  deleteOldPost = (id) =>{
+            db.collection("post").doc(id).delete().then(function() {
+            console.log('Document successfully deleted!');
+        })
+        .catch(function(error) {
+          console.error('Error removing document: ', error);
+        });
+        } */
+        btn.innerHTML=
+        `
+        <i class="icono far fa-paper-plane"></i>
+        `
+      })
+      .catch(function(error) {
+        // The document probably doesn't exist.
+        console.error("Error , no se encuentra la publicación: ", error);
+      });
+  }
+}    
+
+
+
+/*
 //convertir post en input
 
  editPost=(id,newPublication) => {
@@ -353,5 +394,4 @@ const deletePost = (id) => {
         console.error("Error , no se encuentra la publicación: ", error);
     });
 }
-
- 
+*/
