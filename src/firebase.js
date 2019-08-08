@@ -246,7 +246,7 @@ const printPosts = () =>{
       `
       <div id="boxPublication">
         <h4>${doc.data().email}</h4>
-        <p id="textPublication"> ${doc.data().publication}</p>
+        <input id="textPublication" disabled="disabled"/ value= "${doc.data().publication}"> 
         <h6> ${doc.data().date}</h6>
         <h6> ${doc.data().hour}</h6>
 
@@ -315,18 +315,16 @@ const deletePost = (id) => {
   }
 
 //Editar mensajes
-
-
-function editPost(id,publication){
-
-  document.getElementById("publication").value= publication;
-  let btn=document.getElementById("crearPost");
+const editPost = (id,publication) => {
+  document.getElementById("textPublication").value=publication;
+  document.getElementById("textPublication").disabled=false;
+  let btn=document.getElementById("edit");
   btn.innerHTML="Editar";
 
   btn.onclick = () =>{
     let edited = db.collection("post").doc(id);
     // Set the "capital" field of the city 'DC'
-  let publication= document.getElementById("publication").value;
+  let publication= document.getElementById("textPublication").value;
       return edited.update({
         publication,
     
@@ -342,7 +340,7 @@ function editPost(id,publication){
         } */
         btn.innerHTML=
         `
-        <i class="icono far fa-paper-plane"></i>
+        <i class="icono fas fa-edit"></i>
         `
       })
       .catch(function(error) {
@@ -351,7 +349,6 @@ function editPost(id,publication){
       });
   }
 }    
-
 
 
 /*
