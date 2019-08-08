@@ -247,11 +247,11 @@ const printPosts = () =>{
       `
       <div id="boxPublication">
         <h4>${doc.data().email}</h4>
-        <input id="textPublication" disabled="disabled"/ value= "${doc.data().publication}"> 
+        <input id="textPublication-${doc.id}" disabled="disabled" value= "${doc.data().publication}"/> 
         <h6> ${doc.data().date}</h6>
         <h6> ${doc.data().hour}</h6>
 
-        <button id="edit" onclick="editPost('${doc.id}','${doc.data().publication}')">
+        <button id="edit-${doc.id}" onclick="editPost('${doc.id}','${doc.data().publication}')">
         <i class="icono fas fa-edit"></i>
         </button>
         <button id="remove" onclick="deletePost('${doc.id}')">
@@ -321,31 +321,22 @@ const deletePost = (id) => {
   }
   }
 
-/*
+
 //Editar mensajes Gloria
 const editPost = (id,publication) => {
-  document.getElementById("textPublication").value=publication;
-  document.getElementById("textPublication").disabled=false;
-  let btn=document.getElementById("edit");
-  btn.innerHTML="Editar";
+  document.getElementById(`textPublication-${id}`).value=publication;
+  document.getElementById(`textPublication-${id}`).disabled=false;
+  let btn=document.getElementById(`edit-${id}`);
+  btn.innerHTML="Guardar";
 
   btn.onclick = () =>{
     let edited = db.collection("post").doc(id);
-    // Set the "capital" field of the city 'DC'
-  let publication= document.getElementById("textPublication").value;
+  let publication= document.getElementById(`textPublication-${id}`).value;
       return edited.update({
         publication,
     
       }).then(function() {
         console.log(" La publicación se ha editado exitosamente!");
-        /*  deleteOldPost = (id) =>{
-            db.collection("post").doc(id).delete().then(function() {
-            console.log('Document successfully deleted!');
-        })
-        .catch(function(error) {
-          console.error('Error removing document: ', error);
-        });
-        } *//*
         btn.innerHTML=
         `
         <i class="icono fas fa-edit"></i>
@@ -357,7 +348,7 @@ const editPost = (id,publication) => {
       });
   }
 }  
-*/
+
 
 
 /*
@@ -403,10 +394,7 @@ const editPost = (id,publication) => {
     });
   }
 }
-<<<<<<< HEAD
-=======
 */
->>>>>>> 30e4f10a7509830dacde788cb7f42e34e8a4bd6e
 
 const totaLike = (id, like)=>{ 
   let aumenta = 2;
