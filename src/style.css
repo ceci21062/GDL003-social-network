@@ -216,7 +216,10 @@ footer{
   background-color: white;
   color:#307e7e;
 }
-
+.publication{
+  background-color: white;
+  border: 2rem solid #45969b;
+}
 #boxPublication{
   background-color: white;
   border: 5% #f96d15;
@@ -225,15 +228,16 @@ footer{
   width: 50%;
   display: inline-block;
 }
-#like, #edit, #remove, {
+#like, #edit, #remove, #crearPost, #logOut{
   background: transparent;
   border: 0ch;
 }
 
-#crearPost{
-  background: white;
-  background-size: 100%;
-}
 .icono{
   color: #f96d15;
+}
+
+.iconoBig{
+  color: #f96d15 ;
+  font-size: 30px;
 }
