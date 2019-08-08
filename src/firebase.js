@@ -15,7 +15,6 @@
 
      const handleSignUp =() => {
           let displayName = document.getElementById('name').value;
-
           let email = document.getElementById('email').value;
           let password = document.getElementById('password').value;
           let confirmPassword = document.getElementById('confirmPassword').value;
@@ -250,8 +249,17 @@ const printPosts = () =>{
         <p id="textPublication"> ${doc.data().publication}</p>
         <h6> ${doc.data().date}</h6>
         <h6> ${doc.data().hour}</h6>
-        <button id="edit" onclick="editPost('${doc.id}','${doc.data().publication}')">Editar</button>
-        <button id="remove" onclick="deletePost('${doc.id}')">Eliminar</button>
+
+        <button id="edit" onclick="editPost('${doc.id}','${doc.data().publication}')">
+        <i class="icono fas fa-edit"></i>
+        </button>
+        <button id="remove" onclick="deletePost('${doc.id}')">
+        <i class="icono fas fa-trash-alt"></i>
+        </button>
+        <button id="like">
+        <i class=" icono fas fa-paw"></i>
+        </button>
+
         <br>
       </div>
       `   
@@ -288,17 +296,23 @@ document.getElementById("adopt").addEventListener("click", printPosts);
 };
 document.getElementById("publication").value="";
 });
+
 document.getElementById('crearPost').addEventListener('click',post);
 
 //borrar post
 const deletePost = (id) => {
-db.collection("post").doc(id).delete().then(function() {
-    console.log('Document successfully deleted!');
-  })
-  .catch(function(error) {
-    console.error('Error removing document: ', error);
-  });
-},
+  if (confirm('¿Estas seguro de eliminar este post?')){
+      db.collection("post").doc(id).delete().then(function() {
+       console.log('Document successfully deleted!');
+    })
+    .catch(function(error) {
+      console.error('Error removing document: ', error);
+    });
+  }else{
+    console.log("El mensaje no se eliminó");
+  }
+  }
+
 
 //convertir post en input
 
@@ -338,6 +352,6 @@ db.collection("post").doc(id).delete().then(function() {
         // The document probably doesn't exist.
         console.error("Error , no se encuentra la publicación: ", error);
     });
-
-
 }
+
+ 

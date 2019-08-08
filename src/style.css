@@ -219,10 +219,21 @@ footer{
 
 #boxPublication{
   background-color: white;
-  border: #f96d15;
+  border: 5% #f96d15;
   color: #307e7e;
   height: 50%;
   width: 50%;
   display: inline-block;
 }
+#like, #edit, #remove, {
+  background: transparent;
+  border: 0ch;
+}
 
+#crearPost{
+  background: white;
+  background-size: 100%;
+}
+.icono{
+  color: #f96d15;
+}
