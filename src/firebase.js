@@ -96,7 +96,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
             
 //document.getElementById('createUser').textContent = 'Ingresa con Google';
-      ////////////////////////////////////////////////
+     ////////////////////////////////////////////////
 /* const uiConfig = {
   signInSuccessUrl: 'home',
   signInOptions: [
@@ -272,7 +272,7 @@ const printPosts = () =>{
 document.getElementById("adopt").addEventListener("click", printPosts);
 
 //Se publican posts con la caja de texto
-  const post = (function(user) {
+const post = (function(user) {
   let id = firebase.auth().currentUser;
   let email= id.email;
   let publication= document.getElementById("publication").value;
