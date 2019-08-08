@@ -247,7 +247,7 @@ const printPosts = () =>{
       `
       <div id="boxPublication">
         <h4>${doc.data().email}</h4>
-        <p id="textPublication"> ${doc.data().publication}</p>
+        <input id="textPublication" disabled="disabled"/ value= "${doc.data().publication}"> 
         <h6> ${doc.data().date}</h6>
         <h6> ${doc.data().hour}</h6>
 
@@ -271,6 +271,7 @@ const printPosts = () =>{
 }
 document.getElementById("adopt").addEventListener("click", printPosts);
 
+//Se publican posts con la caja de texto
   const post = (function(user) {
   let id = firebase.auth().currentUser;
   let email= id.email;
@@ -320,8 +321,47 @@ const deletePost = (id) => {
   }
   }
 
+/*
+//Editar mensajes Gloria
+const editPost = (id,publication) => {
+  document.getElementById("textPublication").value=publication;
+  document.getElementById("textPublication").disabled=false;
+  let btn=document.getElementById("edit");
+  btn.innerHTML="Editar";
 
-//convertir post en input
+  btn.onclick = () =>{
+    let edited = db.collection("post").doc(id);
+    // Set the "capital" field of the city 'DC'
+  let publication= document.getElementById("textPublication").value;
+      return edited.update({
+        publication,
+    
+      }).then(function() {
+        console.log(" La publicación se ha editado exitosamente!");
+        /*  deleteOldPost = (id) =>{
+            db.collection("post").doc(id).delete().then(function() {
+            console.log('Document successfully deleted!');
+        })
+        .catch(function(error) {
+          console.error('Error removing document: ', error);
+        });
+        } *//*
+        btn.innerHTML=
+        `
+        <i class="icono fas fa-edit"></i>
+        `
+      })
+      .catch(function(error) {
+        // The document probably doesn't exist.
+        console.error("Error , no se encuentra la publicación: ", error);
+      });
+  }
+}  
+*/
+
+
+/*
+//convertir post en input Erika
 
  editPost=(id,newPublication) => {
 
@@ -363,6 +403,7 @@ const deletePost = (id) => {
     });
   }
 }
+*/
 
 const totaLike = (id, like)=>{ 
   let aumenta = 2;
@@ -372,7 +413,3 @@ const totaLike = (id, like)=>{
       console.log(like);
     }
 
-    
-   
-    
- 
