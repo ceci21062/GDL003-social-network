@@ -321,7 +321,8 @@ const deletePost = (id) => {
   }
   }
 
-//Editar mensajes
+/*
+//Editar mensajes Gloria
 const editPost = (id,publication) => {
   document.getElementById("textPublication").value=publication;
   document.getElementById("textPublication").disabled=false;
@@ -344,7 +345,7 @@ const editPost = (id,publication) => {
         .catch(function(error) {
           console.error('Error removing document: ', error);
         });
-        } */
+        } *//*
         btn.innerHTML=
         `
         <i class="icono fas fa-edit"></i>
@@ -355,11 +356,12 @@ const editPost = (id,publication) => {
         console.error("Error , no se encuentra la publicación: ", error);
       });
   }
-}    
+}  
+*/
 
 
 /*
-//convertir post en input
+//convertir post en input Erika
 
  editPost=(id,newPublication) => {
 
@@ -401,6 +403,10 @@ const editPost = (id,publication) => {
     });
   }
 }
+<<<<<<< HEAD
+=======
+*/
+>>>>>>> 30e4f10a7509830dacde788cb7f42e34e8a4bd6e
 
 const totaLike = (id, like)=>{ 
   let aumenta = 2;
