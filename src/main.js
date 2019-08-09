@@ -25,6 +25,7 @@ const enterRegister = () => {
   document.getElementById("loginGoogle").style.display = "none";
   document.getElementById("register").style.display = "none";
   document.getElementById("passwordReset").style.display = "none";
+  document.getElementById("wrong").style.display = "none";
   document.getElementById("email").value = "";
   document.getElementById("password").value = "";
 };

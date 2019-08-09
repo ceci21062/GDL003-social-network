@@ -30,7 +30,6 @@ const handleSignUp = () => {
   if (password !== confirmPassword) {
     alert('Por favor verifica tu contraseña este correcta');
   }
-  // Inicia sesión con usuario y contraseña
   // Crea usuario con contraseña
   let promise = firebase.auth().createUserWithEmailAndPassword(email, password);
   promise.then(() => {
@@ -83,6 +82,7 @@ firebase.auth().onAuthStateChanged((user) => {
     document.getElementById("login").textContent = 'Sesión abierta';
   }
 });
+
 //Inicio de sesión
 const signIn = () => {
   let email = document.getElementById('email').value;
@@ -116,6 +116,7 @@ document.getElementById("login").addEventListener("click", signIn);
 window.onload = () => {
   initApp();
 };
+
 //Inicia sesión con Google
 const loginGoogle = () => {
   let provider = new firebase.auth.GoogleAuthProvider();
@@ -130,19 +131,18 @@ const loginGoogle = () => {
 };
 document.getElementById("loginGoogle").addEventListener("click", loginGoogle);
 
-/* //podemos ver si el usuario esta conectado o no
+//podemos ver si el usuario esta conectado o no
 firebase.auth().onAuthStateChanged(function(user) {
   firebase.auth().currentUser;
   if (user) {
     console.log("El usuario esta conectado");
     console.log(user.email);
     console.log(user.displayName);
-    document.getElementById("userName").innerHTML=user.email;
+    //document.getElementById("userName").innerHTML=user.email;
   } else {
     console.log("El usuario NO esta conectado");
   }
-}); */
-
+});
 
 //cerrar sesión
 const logOut = () => {
@@ -177,17 +177,17 @@ const printPosts = () => {
         `
       <article id="boxPublication">
         <h4>${doc.data().email}</h4>
-        <input id="textPublication-${doc.id}" disabled="disabled" value= "${doc.data().publication}"/> 
+        <textarea class="textPublication" id="textPublication-${doc.id}" disabled="disabled">${doc.data().publication}</textarea> 
         <h6> ${doc.data().date}</h6>
         <h6> ${doc.data().hour}</h6>
         <button id="edit-${doc.id}" onclick="editPost('${doc.id}','${doc.data().publication}')">
-        <i class="icono fas fa-edit"></i>
+        <i id="btnEdit" class="icono fas fa-edit"></i>
         </button>
         <button id="remove-${doc.id}" onclick="deletePost('${doc.id}')">
-        <i class="icono fas fa-trash-alt"></i>
+        <i id="btnDelete" class="icono fas fa-trash-alt"></i>
         </button>
         <button id="like" onclick="totalLike('${doc.id}')">${doc.data().like}
-        <i class=" icono fas fa-paw"></i> 
+        <i id="btnLike" class=" icono fas fa-paw"></i> 
         </button>
         <br>
       </article>
@@ -273,113 +273,3 @@ const totalLike = (id)=>{
     refLike.update("like",firebase.firestore.FieldValue.increment(1));
   
     }
-
-/*
-//Código para página de encuentra
-//Se imprimen los post en tiempo real
-const printPostsFind = () => {
-
-  db.collection("postFind").onSnapshot((querySnapshot) => {
-    document.getElementById("startPublicationFind").innerHTML = "";
-    querySnapshot.forEach((doc) => {
-      document.getElementById("startPublicationFind").innerHTML +=
-        `
-      <article id="boxPublicationFind">
-        <h4>${doc.data().email}</h4>
-        <input id="textPublicationFind-${doc.id}" disabled="disabled" value= "${doc.data().publication}"/> 
-        <h6> ${doc.data().date}</h6>
-        <h6> ${doc.data().hour}</h6>
-        <button id="editFind-${doc.id}" onclick="editPostFind('${doc.id}','${doc.data().publication}')">
-        <i class="icono fas fa-edit"></i>
-        </button>
-        <button id="removeFind-${doc.id}" onclick="deletePostFind('${doc.id}')">
-        <i class="icono fas fa-trash-alt"></i>
-        </button>
-        <button id="likeFind" onclick="totalLikeFind('${doc.id}','${doc.data().like}')">${doc.data().like}
-        <i class=" icono fas fa-paw"></i> 
-        </button>
-        <br>
-      </article>
-      `
-    });
-  });
-}
-document.getElementById("find").addEventListener("click", printPostsFind);
-
-//Se publican posts con la caja de texto
-const postFind = (() => {
-  let id = firebase.auth().currentUser;
-  let email = id.email;
-  let publication = document.getElementById("publicationFind").value;
-  let like = 0;
-
-  if (publication == "") {
-    alert("Error, primero escribe algo");
-  } else {
-    db.collection("postFind").add({
-      email,
-      publication,
-      date: new Date().toLocaleDateString(),
-      hour: new Date().toLocaleTimeString(),
-      like
-    }).then(() => {
-
-    });
-  };
-  document.getElementById("publicationFind").value = "";
-});
-
-document.getElementById('postFind').addEventListener('click', postFind);
-
-//borrar post
-const deletePostFind = (id) => {
-
-  if (confirm('¿Estas seguro de eliminar este post?')) {
-   
-    db.collection("postFind").doc(id).delete().then(() => {
-      alert('La publicación se ha eliminado correctamente!');
-    })
-    .catch(() => {
-        alert("El mensaje no se eliminó");
-      });
-  }
-}
-
-//Editar mensajes correctamente en el campo seleccionado
-const editPostFind = (id, publication) => {
-  if (confirm('¿Estas seguro de editar esta publicación')) {
-    document.getElementById(`textPublicationFind-${id}`).value = publication;
-    document.getElementById(`textPublicationFind-${id}`).disabled = false;
-    let btn = document.getElementById(`editFind-${id}`);
-    btn.innerHTML = "Guardar";
-
-    btn.onclick = () => {
-      let edited = db.collection("postFind").doc(id);
-      let publication = document.getElementById(`textPublicationFind-${id}`).value;
-      return edited.update({
-        publication,
-        date: new Date().toLocaleDateString(),
-        hour: new Date().toLocaleTimeString()
-
-      }).then(() => {
-        alert(" La publicación se ha editado exitosamente!");
-        btn.innerHTML =
-          `
-        <i class="icono fas fa-edit"></i>
-        `
-      })
-        .catch((error) => {
-          // The document probably doesn't exist.
-          alert("Error , no se encuentra la publicación: ", error);
-        });
-    }
-  }
-}
-
-const totalLikeFind = (id)=>{
-
-    let refLike = db.collection("postFind").doc(id);
-    refLike.update("like",firebase.firestore.FieldValue.increment(1));
-}
-
-    */
