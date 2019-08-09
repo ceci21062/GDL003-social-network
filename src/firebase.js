@@ -186,7 +186,7 @@ const printPosts = () => {
         <button id="remove-${doc.id}" onclick="deletePost('${doc.id}')">
         <i class="icono fas fa-trash-alt"></i>
         </button>
-        <button id="like" onclick="totalLike('${doc.id}','${doc.data().like}')">${doc.data().like}
+        <button id="like" onclick="totalLike('${doc.id}')">${doc.data().like}
         <i class=" icono fas fa-paw"></i> 
         </button>
         <br>
@@ -380,7 +380,7 @@ const totalLikeFind = (id)=>{
 
     let refLike = db.collection("postFind").doc(id);
     refLike.update("like",firebase.firestore.FieldValue.increment(1));
-  
+
     }
 
     */

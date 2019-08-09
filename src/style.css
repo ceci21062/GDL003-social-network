@@ -33,10 +33,11 @@ body{
   background-color: white;
   border: 5% #f96d15;
   color: #307e7e;
+  display: inline-block;
   font-family: 'Ubuntu', sans-serif;
   height: 50%;
+  margin-bottom: 2%;
   width: 50%;
-  display: inline-block;
 }
 footer{
   background-color: white;
@@ -204,4 +205,104 @@ section{
   color:#307e7e;
   font-family: 'Ubuntu', sans-serif;
   text-align: center;
+}
+@media screen and (min-width:1024px){
+  #adopt, #find{
+    align-items: center;
+    border-radius: 50%;
+    height: 9%;
+    margin-left: 5%;
+    margin-top: 0%;
+    width: 9%;
+  }
+  article, #pageInit{
+    align-items: left;
+    background-color: white;
+    height: 80%;
+   }
+   footer{
+    background-color: white;
+    bottom: 0%;
+    position: fixed;
+    visibility: none;
+    width: 100%;
+  }
+   #formLogin{
+    align-items: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 100%;
+    font-weight: bold;
+    height: 10%;
+    margin-bottom: 0%;
+    margin-top: 1%;
+    width: 100%;
+  }
+  #goHome, #search, #goUser{
+    align-items: center;
+    width: 6%;
+    height: 6%;
+    border-radius: 50%;
+    margin-left: 5%;
+  }
+  h3 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.17em;
+    font-weight: bold;
+    padding-top: 0rem;
+    text-align: justify;
+  }
+  header{
+    background-color: white;
+    height: 10%;
+    position: static;
+  }
+  input{
+    align-items: center;
+    border-color: #f96d15;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 150%;
+    height: 1%;
+    padding: 2% 5%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    width: 50%;
+  }
+  #imageHome{
+    height: 30%;
+    margin-top: 1%;
+    margin-bottom: -1%;
+    width: 30%;
+  }
+  #imageWelcome{
+    height: 40%;
+    margin-bottom: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: -10%;
+    width: 40%;
+  }
+  .login{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 150%;
+    font-weight: bold;
+    height: 1%;
+    margin-bottom: 1%;
+    padding: 2% 5%;
+    width: 50%;
+  }
+  #logoPageInit{
+    margin-top: 0%;
+  }
+  #passwordReset{
+    margin-top: -5%;
+  }
+  textarea{
+    height: 50%;
+    width: 60%;
+  }
+  #start{
+    height: 10%;
+    align-items: center;
+    width: 10%;
+  }
 }
