@@ -1,71 +1,64 @@
 
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyBgdr5ouFscnG69jfKQs2GBANr7qB1hNFA",
-          authDomain: "find-your-pet-6f8c3.firebaseapp.com",
-          databaseURL: "https://find-your-pet-6f8c3.firebaseio.com",
-          projectId: "find-your-pet-6f8c3",
-          storageBucket: "",
-          messagingSenderId: "13483930838",
-          appId: "1:13483930838:web:bd5d910cb6c4e465"
-      };
-      // Initialize Firebase
-      let app = firebase.initializeApp(firebaseConfig);
-      let db=firebase.firestore(app);
+// Configuración de firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyBgdr5ouFscnG69jfKQs2GBANr7qB1hNFA",
+  authDomain: "find-your-pet-6f8c3.firebaseapp.com",
+  databaseURL: "https://find-your-pet-6f8c3.firebaseio.com",
+  projectId: "find-your-pet-6f8c3",
+  storageBucket: "",
+  messagingSenderId: "13483930838",
+  appId: "1:13483930838:web:bd5d910cb6c4e465"
+};
+// Inicia con Firebase
+let app = firebase.initializeApp(firebaseConfig);
+let db = firebase.firestore(app);
 
-     const handleSignUp =() => {
-          let displayName = document.getElementById('name').value;
-          let email = document.getElementById('email').value;
-          let password = document.getElementById('password').value;
-          let confirmPassword = document.getElementById('confirmPassword').value;
-          
-          if (email.length < 4) {
-            alert('Por favor ingresa un correo electronico.');
-            return;
-          }
-          if (password.length < 4) {
-            alert('Por favor ingresa una contraseña.');
-            return;
-          }
-          if (password !== confirmPassword){
-            alert('Por favor verifica tu contraseña este correcta');
-          }
-          // Sign in with email and pass.
-          // [START createwithemail]
-          let promise = firebase.auth().createUserWithEmailAndPassword(email, password);
-          promise.then(function(user) {
-            //Se manda la verificación de cuenta al email registrado
-            firebase.auth().currentUser.sendEmailVerification();
-            alert("Tu cuenta ha sido creada, por favor verificala desde tu email");
-          }, function(error) {
-            console.log(error);
-          });
-            
-     };
-     document.getElementById("createUser").addEventListener("click", handleSignUp);
-     
+const handleSignUp = () => {
+  let displayName = document.getElementById('name').value;
+  let email = document.getElementById('email').value;
+  let password = document.getElementById('password').value;
+  let confirmPassword = document.getElementById('confirmPassword').value;
 
-const initApp = ()=> {
-        // Listening for auth state changes.
-        // [START authstatelistener]
-const user = firebase.auth().currentUser;
-
-if (user != null) {
-  user.providerData.forEach(function (profile) {
-    console.log("Sign-in provider: " + profile.providerId);
-    console.log("  Provider-specific UID: " + profile.uid);
-    console.log("  Name: " + profile.displayName);
-    console.log("  Email: " + profile.email);
-    console.log("  Photo URL: " + profile.photoURL);
+  if (email.length < 4) {
+    alert('Por favor ingresa un correo electrónico.');
+    return;
+  }
+  if (password.length < 4) {
+    alert('Por favor ingresa una contraseña.');
+    return;
+  }
+  if (password !== confirmPassword) {
+    alert('Por favor verifica tu contraseña este correcta');
+  }
+  // Inicia sesión con usuario y contraseña
+  // Crea usuario con contraseña
+  let promise = firebase.auth().createUserWithEmailAndPassword(email, password);
+  promise.then(() => {
+    //Se manda la verificación de cuenta al email registrado
+    firebase.auth().currentUser.sendEmailVerification();
+    alert("Tu cuenta ha sido creada, por favor verifica la desde tu email");
+  }, (error) => {
+    alert("Error");
   });
 };
+document.getElementById("createUser").addEventListener("click", handleSignUp);
+
+const initApp = () => {
+  // Escucha la llamada de los cambios de autenticar cuenta
+  const user = firebase.auth().currentUser;
+
+  if (user != null) {
+    user.providerData.forEach((profile) => {
+      alert("Sign-in provider: " + profile.providerId, "Provider-specific UID: " + profile.uid, "Name: " + profile.displayName, "Email: " + profile.email, "Photo URL: " + profile.photoURL);
+    });
+  };
 }
 
-        //podemos ver si el usuario esta conectado o no
-firebase.auth().onAuthStateChanged(function(user) {
+//Podemos ver si el usuario esta conectado o no
+firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    document.getElementById("infoUser").innerHTML+=
-    `<div class = "styleInfo">
+    document.getElementById("infoUser").innerHTML +=
+      `<div class = "styleInfo">
     <br><br>
     <h1>Perfil</h1>
     <br>
@@ -73,128 +66,66 @@ firebase.auth().onAuthStateChanged(function(user) {
     <br>
     <h2>Nombre de Usuario:<br>${user.displayName}</h2>
     <br>
-    <h2>Correo Electronico:<br>${user.email}</h2>
+    <h2>Correo Electrónico:<br>${user.email}</h2>
     </div>`
-    document.getElementById("infoUserAdopt").innerHTML+=
-    `<div class = "styleInfoSelect">
+    document.getElementById("infoUserAdopt").innerHTML +=
+      `<div class = "styleInfoSelect">
     <h1>Adopta:</h1>
     <br>
     <img src =${user.photoURL} alt = "imagen de usuario" width="15%" height="15%">
     </div>`
-    document.getElementById("infoUserFind").innerHTML+=
-    `<div class = "styleInfoSelect">
+    document.getElementById("infoUserFind").innerHTML +=
+      `<div class = "styleInfoSelect">
     <h1>Encuentra:</h1>
     <br>
     <img src =${user.photoURL} alt = "imagen de usuario" width="15%" height="15%">
     </div>`
-    document.getElementById("login").textContent = 'Sesion abierta';
-    console.log("El usuario esta conectado");
-  } else {
-    console.log("El usuario NO esta conectado");
+    document.getElementById("login").textContent = 'Sesión abierta';
   }
 });
-
-            
-//document.getElementById('createUser').textContent = 'Ingresa con Google';
-     ////////////////////////////////////////////////
-/* const uiConfig = {
-  signInSuccessUrl: 'home',
-  signInOptions: [
-    // Leave the lines as is for the providers you want to offer your users.
-  firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-   // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-   //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-   //firebase.auth.GithubAuthProvider.PROVIDER_ID,
-   firebase.auth.EmailAuthProvider.PROVIDER_ID,
-   //firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-   //firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
-  ],
-  // tosUrl and privacyPolicyUrl accept either url string or a callback
-  // function.
-  // Terms of service url/callback.
-  tosUrl: '<your-tos-url>',
-  // Privacy policy url/callback.
-  privacyPolicyUrl : '<bla bla bla>'
-};
-
-// Initialize the FirebaseUI Widget using Firebase.
-const ui = new firebaseui.auth.AuthUI(firebase.auth());
-// The start method will wait until the DOM is loaded.
-ui.start('#firebaseui-auth-container', uiConfig);
- /////////////////////////////////////////// 
-}           
-// [END_EXCLUDE]
-            
- // [START_EXCLUDE silent]
-         
-// [END_EXCLUDE]
-       
-// [END authstatelistener]
-        
-  //document.getElementById('createUser').addEventListener('click', handleSignUp, false ); */
-
-const signIn = () =>{
+//Inicio de sesión
+const signIn = () => {
   let email = document.getElementById('email').value;
   let password = document.getElementById('password').value;
   let resetAlerts = document.getElementsByClassName('alerts');
   resetAlerts.innerHTML = "";
 
   let promise = firebase.auth().signInWithEmailAndPassword(email, password);
-   promise.then(function(currentUser) {
-     document.getElementById("dataLogin").style.display = "none";
-     document.getElementById("home").style.display = "block";
-     document.getElementById("headerLogo").style.display = "block";
-     document.getElementById("logOut").style.display = "block";
-     document.getElementById("footerMenu").style.display = "block";
-     alert("Tu cuenta ha sido loggueada");
-  }, function(error) {
-  if(error.code === "auth/wrong-password"){
-    document.getElementById("wrong").innerHTML = "Tu contraseña es incorrecta. Verifica que sea correcta";  
-    console.log("hasta el error de la contraseña");
-  } else if (error.code === "auth/invalid-email") {
-    document.getElementById("wrong").innerHTML = "Tu email es incorrecto. Verifica que sea correcto";
-    console.log("hasta el error del email mal escrito");
-  } else if(error.code === "auth/user-not-found"){
-    document.getElementById("wrong").innerHTML = "Usuario no registrado";
-    console.log("hasta el error del usuario no registrado");  
-  }  else {
-    console.log(error);
-  }
-});
+  promise.then((currentUser) => {
+    document.getElementById("dataLogin").style.display = "none";
+    document.getElementById("home").style.display = "block";
+    document.getElementById("headerLogo").style.display = "block";
+    document.getElementById("logOut").style.display = "block";
+    document.getElementById("footerMenu").style.display = "block";
+    alert("Tu cuenta ha sido registrada");
+  }, (error) => {
+    if (error.code === "auth/wrong-password") {
+      document.getElementById("wrong").innerHTML = "Tu contraseña es incorrecta. Verifica que sea correcta";
+    } else if (error.code === "auth/invalid-email") {
+      document.getElementById("wrong").innerHTML = "Tu email es incorrecto. Verifica que sea correcto";
+    } else if (error.code === "auth/user-not-found") {
+      document.getElementById("wrong").innerHTML = "Usuario no registrado";
+    } else {
+      alert("Error");
+    }
+  });
 };
 
 document.getElementById("login").addEventListener("click", signIn);
- 
-// acceder a database        
-/* let contactosred =firebase.database().ref("contactosWeb");
-const guardarFormulario = (e) =>{
-  e.preventDefault();
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
- 
-  let nuevoComentarioRef =contactosred.push();
-          nuevoComentarioRef.set({
-              email: email,
-              password: password,
-          });
-  }
-document.getElementById("loginGoogle").addEventListener("click",guardarFormulario); */
 
-window.onload = function() {
+window.onload = () => {
   initApp();
 };
-
-const loginGoogle = () =>{
+//Inicia sesión con Google
+const loginGoogle = () => {
   let provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(function(user){
+  firebase.auth().signInWithPopup(provider).then((user) => {
     document.getElementById("dataLogin").style.display = "none";
-    document.getElementById("home").style.display = "block";       document.getElementById("logOut").style.display = "block"; 
-    document.getElementById("footerMenu").style.display = "block";          
+    document.getElementById("home").style.display = "block"; document.getElementById("logOut").style.display = "block";
+    document.getElementById("footerMenu").style.display = "block";
     alert("Google signIn");
-    console.log(user);
-  }).catch(function(error){
-      alert("Error");
-      console.log(error);
+  }).catch(() => {
+    alert("Error");
   });
 };
 document.getElementById("loginGoogle").addEventListener("click", loginGoogle);
@@ -213,188 +144,125 @@ firebase.auth().onAuthStateChanged(function(user) {
 }); */
 
 
-//cerrar sesion
-const logOut = () =>{
-  firebase.auth().signOut().then(function() {
-  console.log("el usuario se desconectó correctamente");
-}).catch(function(error) {
-console.log(error);
-});
+//cerrar sesión
+const logOut = () => {
+  firebase.auth().signOut().then(() => {
+    alert("La sesión se cerro correctamente");
+  }).catch(() => {
+    alert("error");
+  });
 };
 document.getElementById("logOut").addEventListener("click", logOut);
 
 //Mandar email para restablecer contraseña
-const passwordReset = () =>{
-var auth = firebase.auth();
-var emailAddress = document.getElementById("email").value;
+const passwordReset = () => {
+  var auth = firebase.auth();
+  var emailAddress = document.getElementById("email").value;
 
-auth.sendPasswordResetEmail(emailAddress).then(function() {
-  console.log("ya se envió el correo");
-}).catch(function(error) {
-  console.log(error);
-});
+  auth.sendPasswordResetEmail(emailAddress).then(() => {
+    alert("El correo de verificación se ha enviado");
+  }).catch(() => {
+    alert("Error");
+  });
 };
 document.getElementById("passwordReset").addEventListener("click", passwordReset);
 
 //Se imprimen los post en tiempo real
-const printPosts = () =>{
+const printPosts = () => {
 
   db.collection("post").onSnapshot((querySnapshot) => {
-    document.getElementById("startPublication").innerHTML="";
+    document.getElementById("startPublication").innerHTML = "";
     querySnapshot.forEach((doc) => {
-      console.log("los mensajes ya estan impresos")
-      document.getElementById("startPublication").innerHTML += 
-      `
-      <div id="boxPublication">
+      document.getElementById("startPublication").innerHTML +=
+        `
+      <article id="boxPublication">
         <h4>${doc.data().email}</h4>
         <input id="textPublication-${doc.id}" disabled="disabled" value= "${doc.data().publication}"/> 
         <h6> ${doc.data().date}</h6>
         <h6> ${doc.data().hour}</h6>
-
         <button id="edit-${doc.id}" onclick="editPost('${doc.id}','${doc.data().publication}')">
         <i class="icono fas fa-edit"></i>
         </button>
         <button id="remove" onclick="deletePost('${doc.id}')">
         <i class="icono fas fa-trash-alt"></i>
         </button>
-
-        <button id="like" onclick="totaLike('${doc.id}','${doc.data().like}')">${doc.data().like}
+        <button id="like" onclick="totalLike('${doc.id}','${doc.data().like}')">${doc.data().like}
         <i class=" icono fas fa-paw"></i> 
         </button>
-
         <br>
-         
-      </div>
-      ` 
-    }); 
+      </article>
+      `
+    });
   });
 }
 document.getElementById("adopt").addEventListener("click", printPosts);
 
 //Se publican posts con la caja de texto
-const post = (function(user) {
+const post = (() => {
   let id = firebase.auth().currentUser;
-  let email= id.email;
-  let publication= document.getElementById("publication").value;
-  let date= firebase.firestore;
-  let hour = firebase.firestore;
+  let email = id.email;
+  let publication = document.getElementById("publication").value;
   let like = 0;
 
-  if (publication == ""){
+  if (publication == "") {
     alert("Error, primero escribe algo");
-}else{
-  db.collection("post").add({
-    email,
-    publication,
-    date:new Date().toLocaleDateString(),
-    hour:new Date().toLocaleTimeString(),
-    like,
-}).then((doc)=> {
- 
-  console.log("Document successfully written with ID:", doc.id);
-  console.log("user:", email);
-  console.log("publication", publication);
-  console.log("date:",date);
- console.log("hour:",hour);
- console.log("like:", like);
- 
+  } else {
+    db.collection("post").add({
+      email,
+      publication,
+      date: new Date().toLocaleDateString(),
+      hour: new Date().toLocaleTimeString(),
+      like
+    }).then(() => {
 
-});
-};
-document.getElementById("publication").value="";
+    });
+  };
+  document.getElementById("publication").value = "";
 });
 
-document.getElementById('crearPost').addEventListener('click',post);
+document.getElementById('crearPost').addEventListener('click', post);
 
 //borrar post
 const deletePost = (id) => {
-  if (confirm('¿Estas seguro de eliminar este post?')){
-    
-      db.collection("post").doc(id).delete().then(function() {
-       console.log('Document successfully deleted!');
+  if (confirm('¿Estas seguro de eliminar este post?')) {
+
+    db.collection("post").doc(id).delete().then(() => {
+      alert('La publicación se ha eliminado correctamente!');
     })
-    .catch(function(error) {
-      console.error('Error removing document: ', error);
-    });
-  }else{
-    console.log("El mensaje no se eliminó");
+      .catch(() => {
+        alert("El mensaje no se eliminó");
+      });
   }
-  }
+}
 
+//Editar mensajes correctamente en el campo seleccionado
+const editPost = (id, publication) => {
+  if (confirm('¿Estas seguro de editar esta publicación')) {
+    document.getElementById(`textPublication-${id}`).value = publication;
+    document.getElementById(`textPublication-${id}`).disabled = false;
+    let btn = document.getElementById(`edit-${id}`);
+    btn.innerHTML = "Guardar";
 
-//Editar mensajes Gloria
-const editPost = (id,publication) => {
-  document.getElementById(`textPublication-${id}`).value=publication;
-  document.getElementById(`textPublication-${id}`).disabled=false;
-  let btn=document.getElementById(`edit-${id}`);
-  btn.innerHTML="Guardar";
-
-  btn.onclick = () =>{
-    let edited = db.collection("post").doc(id);
-  let publication= document.getElementById(`textPublication-${id}`).value;
+    btn.onclick = () => {
+      let edited = db.collection("post").doc(id);
+      let publication = document.getElementById(`textPublication-${id}`).value;
       return edited.update({
         publication,
-    
-      }).then(function() {
-        console.log(" La publicación se ha editado exitosamente!");
-        btn.innerHTML=
-        `
+
+      }).then(() => {
+        alert(" La publicación se ha editado exitosamente!");
+        btn.innerHTML =
+          `
         <i class="icono fas fa-edit"></i>
         `
       })
-      .catch(function(error) {
-        // The document probably doesn't exist.
-        console.error("Error , no se encuentra la publicación: ", error);
-      });
-  }
-}  
-
-
-
-/*
-//convertir post en input Erika
-
- editPost=(id,newPublication) => {
-
-  let btnEdit = document.getElementById("edit");
-  let oldPublication = document.getElementById("textPublication");
-  let oldText = oldPublication.textContent;
-
-  db.collection("post").onSnapshot((querySnapshot) => {
-    document.getElementById("textPublication");
-    querySnapshot.forEach((id) => {
-
- console.log(id);
- 
-  id = firebase.auth().currentUser;
-  newPublication = document.createElement('input');
-  newPublication.type = 'text';
-  oldPublication.appendChild(newPublication);
-  oldPublication.replaceWith(newPublication);
-  newPublication.value = oldText;
-  
-    })
-  });
-  if (id == id){
-
-  console.log(newPublication);
-    let washingtonRef = db.collection("post").doc(id);
-
-    // Set the "capital" field of the city 'DC'
-    return washingtonRef.update({
-        newPublication
-  
-    }).then(function() {
-        console.log(" La publicación se ha editado exitosamente!");
-        btnEdit.textContent = 'Guardar';
-    })
-    .catch(function(error) {
-        // The document probably doesn't exist.
-        console.error("Error , no se encuentra la publicación: ", error);
-    });
+        .catch((error) => {
+          // The document probably doesn't exist.
+          alert("Error , no se encuentra la publicación: ", error);
+        });
+    }
   }
 }
-*/
 
 const totaLike = (id, like)=>{
      
@@ -404,3 +272,4 @@ const totaLike = (id, like)=>{
         reflike.update("like",firebase.firestore.FieldValue.increment(1));
   
     }
+
