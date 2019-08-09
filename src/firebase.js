@@ -147,7 +147,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 //cerrar sesión
 const logOut = () => {
   firebase.auth().signOut().then(() => {
-    alert("La sesión se cerro correctamente");
+    alert("La sesión se cerró correctamente");
   }).catch(() => {
     alert("error");
   });
@@ -183,7 +183,7 @@ const printPosts = () => {
         <button id="edit-${doc.id}" onclick="editPost('${doc.id}','${doc.data().publication}')">
         <i class="icono fas fa-edit"></i>
         </button>
-        <button id="remove" onclick="deletePost('${doc.id}')">
+        <button id="remove-${doc.id}" onclick="deletePost('${doc.id}')">
         <i class="icono fas fa-trash-alt"></i>
         </button>
         <button id="like" onclick="totalLike('${doc.id}','${doc.data().like}')">${doc.data().like}
@@ -224,12 +224,13 @@ document.getElementById('crearPost').addEventListener('click', post);
 
 //borrar post
 const deletePost = (id) => {
-  if (confirm('¿Estas seguro de eliminar este post?')) {
 
+  if (confirm('¿Estas seguro de eliminar este post?')) {
+   
     db.collection("post").doc(id).delete().then(() => {
       alert('La publicación se ha eliminado correctamente!');
     })
-      .catch(() => {
+    .catch(() => {
         alert("El mensaje no se eliminó");
       });
   }
@@ -248,6 +249,8 @@ const editPost = (id, publication) => {
       let publication = document.getElementById(`textPublication-${id}`).value;
       return edited.update({
         publication,
+        date: new Date().toLocaleDateString(),
+        hour: new Date().toLocaleTimeString()
 
       }).then(() => {
         alert(" La publicación se ha editado exitosamente!");
@@ -264,12 +267,120 @@ const editPost = (id, publication) => {
   }
 }
 
-const totaLike = (id, like)=>{
-     
-        let reflike = db.collection("post").doc(id);
-        console.log(id);
-        console.log(like);
-        reflike.update("like",firebase.firestore.FieldValue.increment(1));
+const totalLike = (id)=>{
+
+    let refLike = db.collection("post").doc(id);
+    refLike.update("like",firebase.firestore.FieldValue.increment(1));
   
     }
 
+/*
+//Código para página de encuentra
+//Se imprimen los post en tiempo real
+const printPostsFind = () => {
+
+  db.collection("postFind").onSnapshot((querySnapshot) => {
+    document.getElementById("startPublicationFind").innerHTML = "";
+    querySnapshot.forEach((doc) => {
+      document.getElementById("startPublicationFind").innerHTML +=
+        `
+      <article id="boxPublicationFind">
+        <h4>${doc.data().email}</h4>
+        <input id="textPublicationFind-${doc.id}" disabled="disabled" value= "${doc.data().publication}"/> 
+        <h6> ${doc.data().date}</h6>
+        <h6> ${doc.data().hour}</h6>
+        <button id="editFind-${doc.id}" onclick="editPostFind('${doc.id}','${doc.data().publication}')">
+        <i class="icono fas fa-edit"></i>
+        </button>
+        <button id="removeFind-${doc.id}" onclick="deletePostFind('${doc.id}')">
+        <i class="icono fas fa-trash-alt"></i>
+        </button>
+        <button id="likeFind" onclick="totalLikeFind('${doc.id}','${doc.data().like}')">${doc.data().like}
+        <i class=" icono fas fa-paw"></i> 
+        </button>
+        <br>
+      </article>
+      `
+    });
+  });
+}
+document.getElementById("find").addEventListener("click", printPostsFind);
+
+//Se publican posts con la caja de texto
+const postFind = (() => {
+  let id = firebase.auth().currentUser;
+  let email = id.email;
+  let publication = document.getElementById("publicationFind").value;
+  let like = 0;
+
+  if (publication == "") {
+    alert("Error, primero escribe algo");
+  } else {
+    db.collection("postFind").add({
+      email,
+      publication,
+      date: new Date().toLocaleDateString(),
+      hour: new Date().toLocaleTimeString(),
+      like
+    }).then(() => {
+
+    });
+  };
+  document.getElementById("publicationFind").value = "";
+});
+
+document.getElementById('postFind').addEventListener('click', postFind);
+
+//borrar post
+const deletePostFind = (id) => {
+
+  if (confirm('¿Estas seguro de eliminar este post?')) {
+   
+    db.collection("postFind").doc(id).delete().then(() => {
+      alert('La publicación se ha eliminado correctamente!');
+    })
+    .catch(() => {
+        alert("El mensaje no se eliminó");
+      });
+  }
+}
+
+//Editar mensajes correctamente en el campo seleccionado
+const editPostFind = (id, publication) => {
+  if (confirm('¿Estas seguro de editar esta publicación')) {
+    document.getElementById(`textPublicationFind-${id}`).value = publication;
+    document.getElementById(`textPublicationFind-${id}`).disabled = false;
+    let btn = document.getElementById(`editFind-${id}`);
+    btn.innerHTML = "Guardar";
+
+    btn.onclick = () => {
+      let edited = db.collection("postFind").doc(id);
+      let publication = document.getElementById(`textPublicationFind-${id}`).value;
+      return edited.update({
+        publication,
+        date: new Date().toLocaleDateString(),
+        hour: new Date().toLocaleTimeString()
+
+      }).then(() => {
+        alert(" La publicación se ha editado exitosamente!");
+        btn.innerHTML =
+          `
+        <i class="icono fas fa-edit"></i>
+        `
+      })
+        .catch((error) => {
+          // The document probably doesn't exist.
+          alert("Error , no se encuentra la publicación: ", error);
+        });
+    }
+  }
+}
+
+const totalLikeFind = (id)=>{
+
+    let refLike = db.collection("postFind").doc(id);
+    refLike.update("like",firebase.firestore.FieldValue.increment(1));
+  
+    }
+
+    */

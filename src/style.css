@@ -3,28 +3,27 @@
   margin: 0;
   padding: 0;
 }
-#adopt{
-  margin-top: 5%;
+#adopt, #find{
   border-radius: 50%;
   height: 20%;
+  margin-top: 5%;
   width: 20%;
 }
-#adoptPage{
+#adoptPage, #findPage{
+  height: 100%;
   margin-bottom: 100%;
   width: 100%;
-  height: 100%;
 }
-
 .alerts{
-  font-family: 'Ubuntu', sans-serif;
   color: red;
+  font-family: 'Ubuntu', sans-serif;
   margin-bottom: 5%;
 }
-article{
+article, #pageInit{
+  align-items: center;
   background-color: white;
   height: 100%;
   width: 100%;
-  align-items: center;
  }
 body{
   background-color: #45969b;
@@ -34,36 +33,32 @@ body{
   background-color: white;
   border: 5% #f96d15;
   color: #307e7e;
+  font-family: 'Ubuntu', sans-serif;
   height: 50%;
   width: 50%;
   display: inline-block;
 }
-#find{
-  margin-top: 5%;
-  border-radius: 50%;
-  margin-right: 5%;
-  height: 20%;
-  width: 20%;
-}
-footer{
-  visibility: none;
-  position: absolute;
-}
 footer{
   background-color: white;
-  position: fixed;
-  width: 100%;
   bottom: 0%;
+  position: fixed;
+  visibility: none;
+  width: 100%;
 }
 #formLogin{
   align-items: center;
   font-family: 'Ubuntu', sans-serif;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  font-weight: bold;
-  width: 100%;
-  height: 10%;
   font-size: 100%;
+  font-weight: bold;
+  height: 10%;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  width: 100%;
+}
+#goHome, #search, #goUser{
+  width: 15%;
+  height: 15%;
+  border-radius: 50%;
 }
 h3 {
   font-family: 'Ubuntu', sans-serif;
@@ -74,66 +69,53 @@ h3 {
 }
  header{
    background-color: white;
-   position: static;
    height: 20%;
+   position: static;
  }
+ #home>article>h1{
+  text-align: center;
+}
  input{
+  align-items: center;
   border-color: #f96d15;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 100%;
+  height: 10%;
   padding: 5% 10%;
   margin-bottom: 4%;
   margin-top: 4%;
-  height: 10%;
   width: 70%;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 100%;
-  align-items: center;
 }
  #introductionFormat{
-  margin-top: 5%;
-  margin-bottom: 10%;
   align-content: center;
+  color:  #45969b; 
+  height: 100%;
+  margin-bottom: 10%;
   margin-left: 10%;
   margin-right: 10%;
+  margin-top: 5%;
   width: 80%;
-  height: 100%;
-  color:  #45969b; 
 }
 #imageHome{
+  height: 60%;
   margin-top: 10%;
   margin-bottom: 10%;
   width: 90%;
-  height: 60%;
 }
 #imageStart{
   justify-content: center;
   margin-bottom: 10%;
 }
 #imageWelcome{
-  width: 80%;
   height: 80%;
   margin-bottom: 10%;
   margin-left: 10%;
   margin-right: 10%;
-}
-.icono{
-  color: #f96d15;
+  width: 80%;
 }
 .iconoBig{
   color: #f96d15 ;
   font-size: 30px;
-}
-#findPage{
-  margin-bottom: 100%;
-  width: 100%;
-  height: 100%;
-
-}
-
-
-#goHome{
-  width: 15%;
-  height: 15%;
-  border-radius: 50%;
 }
 #like, #edit, #remove, #crearPost, #logOut{
   background: transparent;
@@ -143,32 +125,32 @@ h3 {
    margin-top: 10%;
  }
 #logOut{
+  color: #f96d15;
   display: none;
   float: right;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold; 
-  color: #f96d15;
 }
 .login{
-  padding: 5% 5%;
-  margin-bottom: 5%;
-  width: 60%;
-  height: 10%;
   font-family: 'Ubuntu', sans-serif;
   font-size: 150%;
   font-weight: bold;
+  height: 10%;
+  margin-bottom: 5%;
+  padding: 5% 5%;
+  width: 60%;
 }
 #login{
   background-color: #f96d15;
   border-color: white;
 }
 main{
-  width: 100%;
-  height: 100%;
-  background-color: #45969b;
-  text-align: center;
-  justify-content: center;
   align-items: center;
+  background-color: #45969b;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
 }
 #register{
   background-color: #50b6bb;
@@ -177,75 +159,49 @@ main{
 .pages{
   display: none; 
  }
- .publication{
-  background-color: white;
-  border: 2rem solid #45969b;
-}
- #pageInit{
-  background-color: white;
-  height: 100%;
-  width: 100%;
- }
  #passwordReset{
+  font-family: 'Ubuntu', sans-serif;
   text-decoration: underline;
+}
+.publication{
+  border: 2rem solid #45969b;
+  color: #45969b;
   font-family: 'Ubuntu', sans-serif;
 }
- #start{
-  height: 30%;
-  width: 30%;
-  text-align: center;
-}
-
 section{
-  visibility: none;
   height: 70%;
   margin-bottom: 15%;
+  visibility: none;
 }
 #select{
-  font-family: 'Ubuntu', sans-serif;
   color: #307e7e;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
-  text-align: justify;
   height: 20%;
-  width: 80%;
   margin: 2% 10%;
   padding: 2% 0%;
+  text-align: justify;
+  width: 80%;
 }
-#home>article>h1{
+#start{
+  height: 30%;
   text-align: center;
+  width: 30%;
 }
-
-
-#search{
-  width: 15%;
-  height: 15%;
-  border-radius: 50%;
-}
-#goUser{
-  width: 15%;
-  height: 15%;
-  border-radius: 50%;
-}
-
 .styleInfo{
-  text-align: center;
-  font-family: 'Ubuntu', sans-serif;
   color: #307e7e;
-  margin-top: 10%;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 60%;
+  margin-top: 10%;
+  text-align: center;
 }
 .styleInfoSelect>img{
-  text-align: left;
   border-radius: 50%;
+  text-align: left;
 }
 .styleInfoSelect>h1{
-  text-align: center;
-  font-family: 'Ubuntu', sans-serif;
   background-color: white;
   color:#307e7e;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
 }
-
-
-
-
-
