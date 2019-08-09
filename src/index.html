@@ -48,8 +48,8 @@
   <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required />
       </form>
       <button id="login" class="login">Entrar</button>
-      <button id="loginGoogle" class="login">Registro con Google</button>
       <button id="register" class="login">Registrate</button>
+      <img id="loginGoogle"src="btnEnterGoogle.png" Alt="Entrar con Google">
       <button id="createUser" class="login">Crear usuario</button>
     </section>
     <section id="home" class="pages">
@@ -68,16 +68,18 @@
       <img id="adopt" src="https://i.ibb.co/b2pLvN1/Whats-App-Image-2019-07-25-at-4-12-56-PM.jpg" alt="Adopta">
     </section>
     <section id="findPage" class="pages">
-       
+      <article> 
         <h3 id="infoUserFind"></h3>
-      <textarea id="textFind" required></textarea>
-      <button id="postFind">Postear</button>
+        <textarea id="publicationFind" placeholder="Escribe tu publicación para encontrar tu mascota perdida" required cols="30" rows="10"></textarea>
+        <button id="postFind"><i class="iconoBig far fa-paper-plane"></i></button>
+      </article> 
+      <p id="startPublicationFind"></p>  
     </section>
     <section id="adoptPage" class="pages">
       <article class="publication">
-      <h3 id="infoUserAdopt"></h3>
-      <textarea id="publication" placeholder="Escribe tu publicación para dar en adopción" required cols="30" rows="10"></textarea>
-      <button id="crearPost"><i class="iconoBig far fa-paper-plane"></i></button>
+        <h3 id="infoUserAdopt"></h3>
+        <textarea id="publication" placeholder="Escribe tu publicación para dar en adopción" required cols="30" rows="10"></textarea>
+        <button id="crearPost"><i class="iconoBig far fa-paper-plane"></i></button>
       </article>
       <p id="startPublication"></p>
     </section>
