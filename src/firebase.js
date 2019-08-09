@@ -380,7 +380,6 @@ const totalLikeFind = (id)=>{
 
     let refLike = db.collection("postFind").doc(id);
     refLike.update("like",firebase.firestore.FieldValue.increment(1));
-
-    }
+}
 
     */
