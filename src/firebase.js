@@ -264,11 +264,9 @@ const editPost = (id, publication) => {
   }
 }
 
-const totaLike = (id, like)=>{
+const totaLike = (id)=>{
      
         let reflike = db.collection("post").doc(id);
-        console.log(id);
-        console.log(like);
         reflike.update("like",firebase.firestore.FieldValue.increment(1));
   
     }
