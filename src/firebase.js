@@ -183,7 +183,7 @@ const printPosts = () => {
         <button id="edit-${doc.id}" onclick="editPost('${doc.id}','${doc.data().publication}')">
         <i class="icono fas fa-edit"></i>
         </button>
-        <button id="remove" onclick="deletePost('${doc.id}')">
+        <button id="remove-${doc.id}" onclick="deletePost('${doc.id}')">
         <i class="icono fas fa-trash-alt"></i>
         </button>
         <button id="like" onclick="totalLike('${doc.id}','${doc.data().like}')">${doc.data().like}
@@ -224,12 +224,13 @@ document.getElementById('crearPost').addEventListener('click', post);
 
 //borrar post
 const deletePost = (id) => {
-  if (confirm('¿Estas seguro de eliminar este post?')) {
 
+  if (confirm('¿Estas seguro de eliminar este post?')) {
+   
     db.collection("post").doc(id).delete().then(() => {
       alert('La publicación se ha eliminado correctamente!');
     })
-      .catch(() => {
+    .catch(() => {
         alert("El mensaje no se eliminó");
       });
   }
@@ -248,6 +249,8 @@ const editPost = (id, publication) => {
       let publication = document.getElementById(`textPublication-${id}`).value;
       return edited.update({
         publication,
+        date: new Date().toLocaleDateString(),
+        hour: new Date().toLocaleTimeString()
 
       }).then(() => {
         alert(" La publicación se ha editado exitosamente!");
@@ -264,12 +267,10 @@ const editPost = (id, publication) => {
   }
 }
 
-const totaLike = (id, like)=>{
-     
-        let reflike = db.collection("post").doc(id);
-        console.log(id);
-        console.log(like);
-        reflike.update("like",firebase.firestore.FieldValue.increment(1));
+const totalLike = (id)=>{
+
+    let refLike = db.collection("post").doc(id);
+    refLike.update("like",firebase.firestore.FieldValue.increment(1));
   
     }
 
