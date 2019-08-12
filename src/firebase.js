@@ -14,7 +14,6 @@ let app = firebase.initializeApp(firebaseConfig);
 let db = firebase.firestore(app);
 
 const handleSignUp = () => {
-  let displayName = document.getElementById('name').value;
   let email = document.getElementById('email').value;
   let password = document.getElementById('password').value;
   let confirmPassword = document.getElementById('confirmPassword').value;
@@ -33,11 +32,9 @@ const handleSignUp = () => {
   // Crea usuario con contraseña
   let promise = firebase.auth().createUserWithEmailAndPassword(email, password);
   promise.then(() => {
-    //Se manda la verificación de cuenta al email registrado
+  // Se manda la verificación de cuenta al email registrado
     firebase.auth().currentUser.sendEmailVerification();
     alert("Tu cuenta ha sido creada, por favor verifica la desde tu email");
-  }, (error) => {
-    alert("Error");
   });
 };
 document.getElementById("createUser").addEventListener("click", handleSignUp);
@@ -46,14 +43,14 @@ const initApp = () => {
   // Escucha la llamada de los cambios de autenticar cuenta
   const user = firebase.auth().currentUser;
 
-  if (user != null) {
+  if (user !== null) {
     user.providerData.forEach((profile) => {
       alert("Sign-in provider: " + profile.providerId, "Provider-specific UID: " + profile.uid, "Name: " + profile.displayName, "Email: " + profile.email, "Photo URL: " + profile.photoURL);
     });
-  };
-}
+  }
+};
 
-//Podemos ver si el usuario esta conectado o no
+// Podemos ver si el usuario esta conectado o no
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     document.getElementById("infoUser").innerHTML +=
@@ -66,24 +63,24 @@ firebase.auth().onAuthStateChanged((user) => {
     <h2>Nombre de Usuario:<br>${user.displayName}</h2>
     <br>
     <h2>Correo Electrónico:<br>${user.email}</h2>
-    </div>`
+    </div>` ;
     document.getElementById("infoUserAdopt").innerHTML +=
       `<div class = "styleInfoSelect">
     <h1>Adopta:</h1>
     <br>
     <img src =${user.photoURL} alt = "imagen de usuario" width="15%" height="15%">
-    </div>`
+    </div>` ;
     document.getElementById("infoUserFind").innerHTML +=
       `<div class = "styleInfoSelect">
     <h1>Encuentra:</h1>
     <br>
     <img src =${user.photoURL} alt = "imagen de usuario" width="15%" height="15%">
-    </div>`
+    </div>` ;
     document.getElementById("login").textContent = 'Sesión abierta';
   }
 });
 
-//Inicio de sesión
+// Inicio de sesión
 const signIn = () => {
   let email = document.getElementById('email').value;
   let password = document.getElementById('password').value;
@@ -91,7 +88,7 @@ const signIn = () => {
   resetAlerts.innerHTML = "";
 
   let promise = firebase.auth().signInWithEmailAndPassword(email, password);
-  promise.then((currentUser) => {
+  promise.then(() => {
     document.getElementById("dataLogin").style.display = "none";
     document.getElementById("home").style.display = "block";
     document.getElementById("headerLogo").style.display = "block";
@@ -117,10 +114,10 @@ window.onload = () => {
   initApp();
 };
 
-//Inicia sesión con Google
+// Inicia sesión con Google
 const loginGoogle = () => {
   let provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then((user) => {
+  firebase.auth().signInWithPopup(provider).then(() => {
     document.getElementById("dataLogin").style.display = "none";
     document.getElementById("home").style.display = "block"; document.getElementById("logOut").style.display = "block";
     document.getElementById("footerMenu").style.display = "block";
@@ -131,20 +128,7 @@ const loginGoogle = () => {
 };
 document.getElementById("loginGoogle").addEventListener("click", loginGoogle);
 
-//podemos ver si el usuario esta conectado o no
-firebase.auth().onAuthStateChanged(function(user) {
-  firebase.auth().currentUser;
-  if (user) {
-    console.log("El usuario esta conectado");
-    console.log(user.email);
-    console.log(user.displayName);
-    //document.getElementById("userName").innerHTML=user.email;
-  } else {
-    console.log("El usuario NO esta conectado");
-  }
-});
-
-//cerrar sesión
+// Cerrar sesión
 const logOut = () => {
   firebase.auth().signOut().then(() => {
     alert("La sesión se cerró correctamente");
@@ -154,7 +138,7 @@ const logOut = () => {
 };
 document.getElementById("logOut").addEventListener("click", logOut);
 
-//Mandar email para restablecer contraseña
+// Mandar email para restablecer contraseña
 const passwordReset = () => {
   var auth = firebase.auth();
   var emailAddress = document.getElementById("email").value;
@@ -167,9 +151,8 @@ const passwordReset = () => {
 };
 document.getElementById("passwordReset").addEventListener("click", passwordReset);
 
-//Se imprimen los post en tiempo real
+// Se imprimen los post en tiempo real
 const printPosts = () => {
-
   db.collection("post").onSnapshot((querySnapshot) => {
     document.getElementById("startPublication").innerHTML = "";
     querySnapshot.forEach((doc) => {
@@ -191,20 +174,20 @@ const printPosts = () => {
         </button>
         <br>
       </article>
-      `
+      ` ;
     });
   });
-}
+};
 document.getElementById("adopt").addEventListener("click", printPosts);
 
-//Se publican posts con la caja de texto
+// Se publican posts con la caja de texto
 const post = (() => {
   let id = firebase.auth().currentUser;
   let email = id.email;
   let publication = document.getElementById("publication").value;
   let like = 0;
 
-  if (publication == "") {
+  if (publication === "") {
     alert("Error, primero escribe algo");
   } else {
     db.collection("post").add({
@@ -216,17 +199,15 @@ const post = (() => {
     }).then(() => {
 
     });
-  };
+  }
   document.getElementById("publication").value = "";
 });
 
 document.getElementById('crearPost').addEventListener('click', post);
 
-//borrar post
+// borrar post
 const deletePost = (id) => {
-
   if (confirm('¿Estas seguro de eliminar este post?')) {
-   
     db.collection("post").doc(id).delete().then(() => {
       alert('La publicación se ha eliminado correctamente!');
     })
@@ -234,9 +215,9 @@ const deletePost = (id) => {
         alert("El mensaje no se eliminó");
       });
   }
-}
+};
 
-//Editar mensajes correctamente en el campo seleccionado
+// Editar mensajes correctamente en el campo seleccionado
 const editPost = (id, publication) => {
   if (confirm('¿Estas seguro de editar esta publicación')) {
     document.getElementById(`textPublication-${id}`).value = publication;
@@ -257,19 +238,17 @@ const editPost = (id, publication) => {
         btn.innerHTML =
           `
         <i class="icono fas fa-edit"></i>
-        `
+        ` ;
       })
         .catch((error) => {
           // The document probably doesn't exist.
           alert("Error , no se encuentra la publicación: ", error);
         });
-    }
+    };
   }
-}
+};
 
 const totalLike = (id)=>{
-
     let refLike = db.collection("post").doc(id);
-    refLike.update("like",firebase.firestore.FieldValue.increment(1));
-  
-    }
+    refLike.update("like", firebase.firestore.FieldValue.increment(1));
+    };
