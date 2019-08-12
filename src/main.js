@@ -1,4 +1,4 @@
-document.getElementById("pageInit").style.display="block";
+document.getElementById("pageInit").style.display = "block";
 document.getElementById("headerLogo").style.display = "none";
 document.getElementById("footerMenu").style.display = "none";
 document.getElementById("nameText").style.display = "none";
@@ -8,7 +8,7 @@ document.getElementById("confirmPassword").style.display = "none";
 document.getElementById("createUser").style.display = "none";
 
 const startApp = ()=>{
-  document.getElementById("pageInit").style.display="none";
+  document.getElementById("pageInit").style.display = "none";
   document.getElementById("dataLogin").style.display = "block";
   document.getElementById("headerLogo").style.display = "block";
 };
@@ -49,7 +49,7 @@ const sendAdopt = () => {
   document.getElementById("findPage").style.display = "none";
   document.getElementById("home").style.display = "none";
   document.getElementById("footerMenu").style.display = "block";
-  document.getElementById("publication").value="";
+  document.getElementById("publication").value = "";
 };
 
 document.getElementById("adopt").addEventListener("click", sendAdopt);
@@ -60,8 +60,8 @@ const goHome = () => {
   document.getElementById("userPage").style.display = "none";
   document.getElementById("home").style.display = "block";
   document.getElementById("footerMenu").style.display = "block";
-  document.getElementById("startPublication").innerHTML="";
-}
+  document.getElementById("startPublication").innerHTML = "";
+};
 
 document.getElementById("goHome").addEventListener("click", goHome);
 
@@ -70,8 +70,8 @@ const infoUser = () => {
   document.getElementById("findPage").style.display = "none";
   document.getElementById("home").style.display = "none";
   document.getElementById("userPage").style.display = "block";
-  document.getElementById("startPublication").innerHTML="";
+  document.getElementById("startPublication").innerHTML = "";
 };
-  document.getElementById("goUser").addEventListener("click",infoUser);
+  document.getElementById("goUser").addEventListener("click", infoUser);
   document.getElementById("infoUserFind").addEventListener("click", infoUser);
   document.getElementById("infoUserAdopt").addEventListener("click", infoUser);
